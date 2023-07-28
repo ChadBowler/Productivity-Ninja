@@ -2,26 +2,26 @@
   {
     "name": "Build API",
     "description": "Client has asked for new API, build and demo.",
-    "status": "Complete"
+    "status": true
   },
   {
     "name": "Overhaul Database",
     "description": "Database needs to be reconfigured and outdated entries removed.",
-    "status": "Complete"
+    "status": true
   },
   {
     "name": "Develop Library",
     "description": "New library needed to improve company website.",
-    "status": "Not Complete"
+    "status": false
   },
   {
     "name": "Research Potential Frameworks",
     "description": "New frameworks needed for team to improve testing.",
-    "status": "Not Complete"
+    "status": false
   },
   {
     "name": "Fix Bugs",
     "description": "",
-    "status": "Not Complete"
+    "status": false
   }
 ]
