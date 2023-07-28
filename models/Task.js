@@ -20,8 +20,8 @@ Task.init(
       allowNull: false,
     },
     status: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
     },
     //attach the Task to the user via username
     user_id: {
@@ -32,19 +32,19 @@ Task.init(
       },
     },
     project_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'project',
-          key: 'id',
-        },
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'project',
+        key: 'id',
       },
+    },
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
     modelName: 'task',
-  }
+  },
 );
 
 module.exports = Task;
