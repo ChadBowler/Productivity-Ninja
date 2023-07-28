@@ -31,12 +31,12 @@ User.init(
       },
     },
     project_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'project',
-          key: 'id',
-        },
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'project',
+        key: 'id',
       },
+    },
   },
   {
     //encrypt the password before saving a new user to the db
@@ -51,7 +51,7 @@ User.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'user',
-  }
+  },
 );
 
 module.exports = User;
