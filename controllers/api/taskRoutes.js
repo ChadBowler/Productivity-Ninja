@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const taskData = await Task.finAll();
+    const taskData = await Task.findAll();
     const tasks = taskData.map((task) => task.toJSON());
     res.status(200).render('/', { tasks });
     console.log(task);
