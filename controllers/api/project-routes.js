@@ -4,10 +4,10 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const projectData = await Projects.findAll();
+    const projectData = await Project.findAll();
     const projects = projectData.map((project) => project.toJSON());
     res.status(200).render('/', { projects });
-    console.log(project);
+    console.log(projects);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -17,9 +17,7 @@ router.post('/', withAuth, async (req, res) => {
   try {
     const newProject = await Project.create({
       ...req.body,
-      project: req.body.project,
-      project_id: req.body.project_id,
-      user_id: req.session.user_id,
+      name: req.body.name,
     });
     res.status(200).json(newProject);
   } catch (err) {

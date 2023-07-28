@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     const taskData = await Task.findAll();
     const tasks = taskData.map((task) => task.toJSON());
     res.status(200).render('/', { tasks });
-    console.log(task);
+    console.log(tasks);
   } catch (err) {
     res.status(500).json(err);
   }

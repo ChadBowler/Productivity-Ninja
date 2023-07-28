@@ -1,6 +1,6 @@
 const { Task } = require('../models');
 
-const userData = [
+const taskData = [
   {
     name: "Build API",
     description: "Client has asked for new API, build and demo.",
@@ -28,6 +28,6 @@ const userData = [
   }
 ]
 
-const seedTasks = () => Task.bulkCreate(userData);
+const seedTasks = () => Task.bulkCreate(taskData);
 
 module.exports = seedTasks;
