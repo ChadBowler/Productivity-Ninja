@@ -7,8 +7,9 @@ router.get('/', async (req, res) => {
     const userData = await User.finAll();
     const users = userData.map((user) => user.toJSON());
     res.status(200).render('/', { users: users });
-    console.log(user);
+    console.log(users);
   } catch (err) {
     res.status(500).json(err);
   }
 });
+module.exports = router;
