@@ -5,12 +5,12 @@ const Project = require('./Project');
 
 
 Project.hasmany(User, {
-  foreignKey: 'user_id',
+  foreignKey: 'project_id',
   onDelete: 'CASCADE'
 });
 
 Project.hasmany(Task, {
-  foreignKey: 'task_id',
+  foreignKey: 'project_id',
   onDelete: 'CASCADE'
 });
 
@@ -35,4 +35,3 @@ Task.belongsTo(Project, {
 });
 
 module.exports = { User, Task, Project };
- 

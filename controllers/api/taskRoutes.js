@@ -17,7 +17,7 @@ router.post('/', withAuth, async (req, res) => {
   try {
     const newTask = await Task.create({
       ...req.body,
-      task: req.body.task,
+      name: req.body.task,
       project_id: req.body.project_id,
       user_id: req.session.user_id,
     });
@@ -33,7 +33,7 @@ router.put('/:id', withAuth, async (req, res) => {
     const updateTask = await Task.update(
       {
         user_id: req.session.user_id,
-        task: req.body.task,
+        name: req.body.task,
       },
       {
         where: {
