@@ -1,17 +1,17 @@
 [
   {
     "name": "Saul",
-    "username": "",
-    "password": ""
+    "username": "saul@brego.io",
+    "password": "password1234"
   },
   {
     "name": "Brenda",
-    "username": "",
-    "password": ""
+    "username": "brenda@shadowfax.io",
+    "password": "password1234"
   },
   {
     "name": "Aniko",
-    "username": "",
-    "password": ""
+    "username": "Aniko@asfaloth.io",
+    "password": "password1234"
   }
 ]

@@ -1,22 +1,14 @@
 [
   {
-    "name": "",
+    "name": "Project 1",
     "status": ""
   },
   {
-    "name": "",
+    "name": "Project 2",
     "status": ""
   },
   {
-    "name": "",
-    "status": ""
-  },
-  {
-    "name": "",
-    "status": ""
-  },
-  {
-    "name": "",
+    "name": "Project 3",
     "status": ""
   }
 ]

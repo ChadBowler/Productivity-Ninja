@@ -1,27 +1,27 @@
 [
   {
-    "name": "",
-    "description": "",
-    "status": ""
+    "name": "Build API",
+    "description": "Client has asked for new API, build and demo.",
+    "status": "Complete"
   },
   {
-    "name": "",
-    "description": "",
-    "status": ""
+    "name": "Overhaul Database",
+    "description": "Database needs to be reconfigured and outdated entries removed.",
+    "status": "Complete"
   },
   {
-    "name": "",
-    "description": "",
-    "status": ""
+    "name": "Develop Library",
+    "description": "New library needed to improve company website.",
+    "status": "Not Complete"
   },
   {
-    "name": "",
-    "description": "",
-    "status": ""
+    "name": "Research Potential Frameworks",
+    "description": "New frameworks needed for team to improve testing.",
+    "status": "Not Complete"
   },
   {
-    "name": "",
+    "name": "Fix Bugs",
     "description": "",
-    "status": ""
+    "status": "Not Complete"
   }
 ]
