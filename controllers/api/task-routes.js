@@ -36,8 +36,9 @@ router.put('/:id', withAuth, async (req, res) => {
   try {
     const updateTask = await Task.update(
       {
-        user_id: req.session.user_id,
-        name: req.body.task,
+        user_id: req.body.user_id,
+        name: req.body.name,
+        description: req.body.description
       },
       {
         where: {
