@@ -32,7 +32,13 @@ const taskFormHandler = async (e) => {
 
     const response = await fetch(`/api/tasks/${projectId}`, {
       method: 'POST',
-      body: JSON.stringify({ name: taskName, description: content, status: false, user_id: userId, project_id: projectId }),
+      body: JSON.stringify({
+        name: taskName,
+        description: content,
+        status: false,
+        user_id: userId,
+        project_id: projectId
+      }),
       headers: { 'Content-Type': 'application/json' },
     });
 
