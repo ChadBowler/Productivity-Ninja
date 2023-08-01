@@ -1,13 +1,13 @@
 const router = require('express').Router();
-const { Task } = require('../../models');
+const { Project } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const taskData = await Task.findAll();
-    const tasks = taskData.map((task) => task.toJSON());
-    res.status(200).render('/', { tasks });
-    console.log(task);
+    const projectData = await Project.findAll();
+    const projects = projectData.map((project) => project.toJSON());
+    res.status(200).render('/', { projects });
+    console.log(projects);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -15,13 +15,11 @@ router.get('/', async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newTask = await Task.create({
+    const newProject = await Project.create({
       ...req.body,
-      task: req.body.task,
-      project_id: req.body.project_id,
-      user_id: req.session.user_id,
+      name: req.body.name,
     });
-    res.status(200).json(newTask);
+    res.status(200).json(newProject);
   } catch (err) {
     console.log(err);
     res.status(400).json(err);
@@ -30,10 +28,10 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const updateTask = await Task.update(
+    const updateProject = await Project.update(
       {
         user_id: req.session.user_id,
-        task: req.body.task,
+        project: req.body.project,
       },
       {
         where: {
@@ -41,11 +39,11 @@ router.put('/:id', withAuth, async (req, res) => {
         },
       },
     );
-    if (!updateTask[0]) {
-      res.status(404).json({ message: 'No task found with this id!' });
+    if (!updateProject[0]) {
+      res.status(404).json({ message: 'No project found with this id!' });
       return;
     }
-    res.status(200).json(updateTask);
+    res.status(200).json(updateProject);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -54,17 +52,17 @@ router.put('/:id', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const taskData = await Task.destroy({
+    const projectData = await Project.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
-    if (!taskData) {
-      res.status(404).json({ message: 'No task found for this user!' });
+    if (!projectData) {
+      res.status(404).json({ message: 'No project found for this user!' });
       return;
     }
-    res.status(200).json(taskData);
+    res.status(200).json(projectData);
   } catch (err) {
     res.status(500).json(err);
   }

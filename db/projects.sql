@@ -1,0 +1,5 @@
+-- DROPS DATABASE --
+DROP DATABASE IF EXISTS projects_db;
+
+-- CREATES DATABASE --
+CREATE DATABASE projects_db;
