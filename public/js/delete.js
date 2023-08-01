@@ -19,6 +19,33 @@ const projectDeleteHandler = async (event) => {
     }
   }
 };
+//front end logic for deleting tasks
+const taskDeleteHandler = async (event) => {
+  event.preventDefault();
+  //getting the id of the selected task
+  const id = document.querySelector('#task-id').value;
+
+  if (id) {
+    const response = await fetch(`/api/tasks/${id}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert('Something went wrong!');
+    }
+  }
+};
+
+try {
+  document
+    .querySelector('.delete-task')
+    .addEventListener('click', taskDeleteHandler);
+} catch (error) {
+  console.log(error);
+}
 
 try {
   document
