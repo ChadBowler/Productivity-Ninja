@@ -15,7 +15,7 @@ const projectDeleteHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/api/users/dashboard');
     } else {
-      alert('Something went wrong!');
+      alert(response.statusText);
     }
   }
 };
@@ -34,7 +34,7 @@ const taskDeleteHandler = async (event) => {
     if (response.ok) {
       document.location.reload();
     } else {
-      alert('Something went wrong!');
+      alert(response.statusText);
     }
   }
 };
