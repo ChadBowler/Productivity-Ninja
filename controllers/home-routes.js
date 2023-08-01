@@ -22,3 +22,10 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 module.exports = router;
+
+// Catch-all route for handling non-existent routes
+router.get('*', (req, res) => {
+  res.render('error', { errorMessage: 'Page not found' });
+});
+
+module.exports = router;

@@ -1,0 +1,30 @@
+/* Custom CSS styles */
+body {
+  padding-bottom: 60px; /* Adjust this value to match footer height */
+}
+
+/* Default background for all div elements */
+div {
+  background: none;
+}
+
+.main-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url('public\assets\logo\Black_and_Red_Ninja.png');
+  background-size: cover;
+  background-position: center;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+.btn{
+  fill: black;
+}
