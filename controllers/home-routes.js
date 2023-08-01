@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-  res.render('home');
+  res.render('homepage');
 });
 
 //signup route
@@ -21,3 +21,4 @@ router.get('/login', (req, res) => {
   }
   res.render('login');
 });
+module.exports = router;

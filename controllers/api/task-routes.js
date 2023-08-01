@@ -4,10 +4,10 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const taskData = await Task.finAll();
+    const taskData = await Task.findAll();
     const tasks = taskData.map((task) => task.toJSON());
     res.status(200).render('/', { tasks });
-    console.log(task);
+    console.log(tasks);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -17,7 +17,7 @@ router.post('/', withAuth, async (req, res) => {
   try {
     const newTask = await Task.create({
       ...req.body,
-      task: req.body.task,
+      name: req.body.task,
       project_id: req.body.project_id,
       user_id: req.session.user_id,
     });
@@ -33,7 +33,7 @@ router.put('/:id', withAuth, async (req, res) => {
     const updateTask = await Task.update(
       {
         user_id: req.session.user_id,
-        task: req.body.task,
+        name: req.body.task,
       },
       {
         where: {

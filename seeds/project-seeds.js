@@ -1,7 +1,7 @@
 
 const { Project } = require('../models');
 
-const userData = [
+const projectData = [
   {
     name: "Project 1",
     status: true
@@ -16,6 +16,6 @@ const userData = [
   }
 ]
 
-const seedProjects = () => User.bulkCreate(userData);
+const seedProjects = () => Project.bulkCreate(projectData);
 
 module.exports = seedProjects;
