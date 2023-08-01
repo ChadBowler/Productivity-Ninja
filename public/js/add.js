@@ -23,14 +23,16 @@ const projectFormHandler = async (e) => {
 const taskFormHandler = async (e) => {
   e.preventDefault();
 
-  const content = document.querySelector('#task-content').value;
+  const taskName = document.querySelector('#task-name').value.trim();
+  const content = document.querySelector('#task-content').value.trim();
   const projectId = document.querySelector('#project-id').value;
+  const userId = document.querySelector('#user-select').value;
 
-  if (content) {
+  if (taskName && content && userId) {
 
     const response = await fetch(`/api/tasks/${projectId}`, {
       method: 'POST',
-      body: JSON.stringify({ name: content }),
+      body: JSON.stringify({ name: taskName, description: content, status: false, user_id: userId, project_id: projectId }),
       headers: { 'Content-Type': 'application/json' },
     });
 
