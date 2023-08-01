@@ -17,7 +17,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    //both username and email are unique
+    //username is unique
     username: {
       type: DataTypes.STRING,
       allowNull: false,

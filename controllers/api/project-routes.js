@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
   try {
     const projectData = await Project.findAll();
     const projects = projectData.map((project) => project.toJSON());
-    res.status(200).render('projects', { projects });
+    res.status(200).render('show-projects', { projects });
     console.log(projects);
   } catch (err) {
     res.status(500).json(err);

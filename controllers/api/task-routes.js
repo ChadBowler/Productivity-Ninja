@@ -15,12 +15,16 @@ router.get('/', async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
   try {
+    console.log(req.body);
     const newTask = await Task.create({
       ...req.body,
-      name: req.body.task,
+      name: req.body.name,
+      description: req.body.description,
+      status: req.body.status,
       project_id: req.body.project_id,
-      user_id: req.session.user_id,
+      user_id: req.body.user_id,
     });
+    console.log(newTask);
     res.status(200).json(newTask);
   } catch (err) {
     console.log(err);
