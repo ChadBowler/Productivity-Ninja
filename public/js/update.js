@@ -12,6 +12,7 @@ function openTaskForm() {
 
 const taskUpdateHandler = async (e) => {
   e.preventDefault();
+  console.log('here');
   //get elements from the page
   const id = e.target.data-taskId;
   const newTaskName = document.querySelector('#new-task-name').value.trim();
@@ -28,11 +29,13 @@ const taskUpdateHandler = async (e) => {
       }),
       headers: { 'Content-Type': 'application/json' },
     });
-      //reload page after updating the task, or send alert if it didn't work
+
+    //reload page after updating the task, or send alert if it didn't work
     if (response.ok) {
       editTaskForm.classList.add('hide');
       document.location.reload();
     } else {
+      console.log(response);
       alert(response.statusText);
     }
   }

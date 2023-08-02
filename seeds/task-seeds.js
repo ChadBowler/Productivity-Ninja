@@ -4,12 +4,12 @@ const taskData = [
   {
     name: "Build API",
     description: "Client has asked for new API, build and demo.",
-    status: true
+    status: false
   },
   {
     name: "Overhaul Database",
     description: "Database needs to be reconfigured and outdated entries removed.",
-    status: true
+    status: false
   },
   {
     name: "Develop Library",

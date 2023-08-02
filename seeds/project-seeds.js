@@ -4,7 +4,7 @@ const { Project } = require('../models');
 const projectData = [
   {
     name: "Project 1",
-    status: true
+    status: false
   },
   {
     name: "Project 2",
@@ -12,9 +12,9 @@ const projectData = [
   },
   {
     name: "Project 3",
-    status: true
+    status: false
   }
-]
+];
 
 const seedProjects = () => Project.bulkCreate(projectData);
 

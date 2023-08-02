@@ -41,11 +41,12 @@ const taskFormHandler = async (e) => {
       }),
       headers: { 'Content-Type': 'application/json' },
     });
-
+    console.log(response);
     if (response.ok) {
       document.location.reload();
     } else {
       alert('Something went wrong!');
+      // document.location = response.redirectUrl;
     }
   }
 };

@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-  console.log('and here');
+
   try {
     const userData = await User.findOne({
       where: { username: req.body.username },
@@ -58,6 +58,28 @@ router.post('/login', async (req, res) => {
 
       res.json({ user: userData, message: 'You are now logged in!' });
     });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+router.put('/add-to-project', async (req, res) => {
+
+  try {
+    const updateUser = await User.update(
+      {
+        project_id: req.body.project_id,
+      },
+      {
+        where: { username: req.body.username },
+      });
+
+    if (!updateUser[0]) {
+      res
+        .status(400)
+        .json({ message: 'No project found with that id, or username is incorrect.' });
+      return;
+    }
+    res.status(200).json({ message: 'User added to project.' });
   } catch (err) {
     res.status(400).json(err);
   }
