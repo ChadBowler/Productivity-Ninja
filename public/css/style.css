@@ -1,6 +1,7 @@
 /* Custom CSS styles */
 body {
-  padding-bottom: 60px; /* Adjust this value to match footer height */
+  /* Adjust this value to match footer height */
+  /* padding-bottom: 60px;  */
 }
 
 /* Default background for all div elements */
@@ -82,4 +83,24 @@ label {
   height: 100%;
   width: 100%;
 }
-
+.nav-link {
+  color: #0cacf7;
+}
+.nav-link:hover {
+  color: black;
+}
+.footer-dark {
+  color: black;
+}
+.nav-container {
+  margin-left: 3%;
+  margin-right: 3%;
+  width: 100%;
+  max-width: 100%;
+}
+.nav-top-container {
+  width: 100%;
+}
+.title {
+  color: white;
+}
