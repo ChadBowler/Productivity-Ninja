@@ -12,7 +12,7 @@ div {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: url('public\assets\logo\Black_and_Red_Ninja.png');
+  background-image: url('assets/logo/Black_and_Red_Ninja.png');
   background-size: cover;
   background-position: center;
 }
