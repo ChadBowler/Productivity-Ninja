@@ -8,11 +8,11 @@ div {
   background: none;
 }
 
-.main-body {
+.login-body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: url('assets/logo/Black_and_Red_Ninja.png');
+  background-image: url('/assets/logo/cbowlerdev_strong_blue_and_black_lines_blurry_overlapping_2757a9ab-b468-42e6-a78b-b744987f1304.png');
   background-size: cover;
   background-position: center;
 }
@@ -28,3 +28,58 @@ footer {
 .btn{
   fill: black;
 }
+.form-group h2, .signup-form, .login-form {
+  color: white;
+}
+.signup-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.signup-form, .login-form {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.form-subtext {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-top: 0;
+}
+.ninja-icon {
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+}
+.text-input {
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: 5px solid rgb(112, 112, 112);
+}
+label {
+  font-size: 1.5rem;
+}
+.button {
+  border: 5px solid rgb(112, 112, 112);
+  border-radius: 20px;
+  background-color: #0cacf7;
+  margin-top: 10px;
+  font-weight: 700;
+  /* box-shadow: 2px 2px rgb(112, 112, 112); */
+}
+.link-span {
+  text-decoration: none;
+  color: white;
+}
+.link-span:hover {
+  color: rgb(48, 71, 201);
+}
+.projects-section {
+  background-color: white;
+  height: 100%;
+  width: 100%;
+}
+

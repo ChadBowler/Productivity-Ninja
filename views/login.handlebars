@@ -1,4 +1,25 @@
-<div class="row justify-space-between-md" rel="stylesheet" type="text/css" href="../public/css/style.css">
+<div class="form-group signup-container"></div>
+    <img class="ninja-icon" src="/assets/logo/blue_ninja.png" alt="blue ninja">
+      <form class="login-form" action="/api/users" method="post">
+        <h2 style="color: white;">Login</h2>
+        
+          <label for="username-login">Username:</label>
+          <input class="text-input" type="text" name="username" id="username-login" required>
+        
+        
+        
+          <label for="password-login">Password:</label>
+          <input class="text-input" type="password" name="password" id="password-login" required>
+        
+        <button class="btn button" type="submit">Login</button>
+      </form>
+      <div class="form-subtext">
+        <h3 class="page-title" style="color: white;">No Account? <a class="link-span" href="/signup"><span>Signup here</span></a></h3>
+      </div>
+  </div>
+
+
+{{!-- <div class="row justify-space-between-md" rel="stylesheet" type="text/css" href="../public/css/style.css">
   <div class="login-card">
     <h2 class="page-title">Login</h2>
     <form class="form login-form">
@@ -16,12 +37,12 @@
     </form>
   </div>
   <div class="login-card">
-    <h3 class="page-title">No Account? Sign Up Here</h3>
+    <h3 class="page-title" style="color: white;">No Account? Sign Up Here</h3>
       <form class="form signup-form">
-        <button class="btn" type="submit">sign up</button>
+        <button class="btn button" type="submit">sign up</button>
       </div>
     </form>
   </div>
-</div>
+</div> --}}
 
 <script src="./js/login.js"></script>

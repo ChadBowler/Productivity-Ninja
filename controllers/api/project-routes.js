@@ -3,12 +3,25 @@ const { Project } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
-  console.log('here');
+
   try {
     const projectData = await Project.findAll();
     const projects = projectData.map((project) => project.toJSON());
     res.status(200).render('show-projects', { projects, logged_in: req.session.logged_in });
     console.log(projects);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/:id', async (req, res) => {
+
+  try {
+    const projectData = await Project.findByPk(req.params.id);
+    const project = projectData.get({ plain: true});
+    res.status(200).render('show-projects', { project, logged_in: req.session.logged_in });
+    console.log(project);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

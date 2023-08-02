@@ -1,9 +1,10 @@
-<nav class='navbar navbar-expand navbar-dark bg-danger'>
+<nav class='navbar navbar-expand navbar-dark'>
         <div class='container'>
           <!-- Add the logo image -->
           <a class='navbar-brand' href='#'>
             <img
-              src='/assets/logo/Black_and_Red_Ninja.png'
+              class="ninja-icon"
+              src='/assets/logo/blue_ninja.png'
               alt='Productivity Ninja Logo'
               height='40'
             />
@@ -12,7 +13,7 @@
             {{#if logged_in}}
               <li class='nav-item'>
                 <a class='nav-link' href='/'>Dashboard</a>
-                <button id="logout" class='btn btn-outline-light'>Logout</button>
+                <button id="logout" class='btn btn-outline-light button'>Logout</button>
               </li>
             {{else}}
               <li class='nav-item'>
@@ -24,4 +25,4 @@
           </ul>
         </div>
       </nav>
-      <script src="./js/logout.js"></script>
+      <script src="/js/logout.js"></script>

@@ -14,16 +14,18 @@
     <title>Productivity Ninja</title>
   </head>
   <body>
-    <div class="navbar-section">
-      {{> navbar}}
-    </div>
-    <div class="main-body">
-       {{{body}}}
-    </div>
-       
+      {{#if logged_in}}
+        <div class="main-body">
+         {{{body}}}
+        </div>
+      {{else}}
+        <div class="login-body">
+          {{{body}}}
+        </div>
+      {{/if}}
       
-      <footer class='bg-danger text-light text-center py-3 fixed-bottom'>
-        &copy; 2023 - Productivity Ninja
+      <footer class='text-light text-center py-3 fixed-bottom'>
+        {{>footer}}
       </footer>
     </div>
     {{!-- {{#each js}}
