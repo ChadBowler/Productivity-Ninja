@@ -95,7 +95,6 @@ label {
 .nav-container {
   margin-left: 3%;
   margin-right: 3%;
-  width: 100%;
   max-width: 100%;
 }
 .nav-top-container {
@@ -103,4 +102,8 @@ label {
 }
 .title {
   color: white;
+  font-family: 'Trade Winds', cursive;
+}
+.bdr {
+  border: 5px solid black
 }
