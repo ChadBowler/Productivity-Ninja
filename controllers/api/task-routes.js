@@ -36,7 +36,7 @@ router.put('/complete/:id', withAuth, async (req, res) => {
   try {
     const updateTask = await Task.update(
       {
-        status: req.body.status
+        status: req.body.status,
       },
       {
         where: {
@@ -61,7 +61,7 @@ router.put('/:id', withAuth, async (req, res) => {
       {
         user_id: req.body.user_id,
         name: req.body.name,
-        description: req.body.description
+        description: req.body.description,
       },
       {
         where: {
