@@ -7,8 +7,6 @@ router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
 
 //for any routes that aren't the homepage or inside the api directory
-router.get('*', (req, res) => {
-  res.status(404).render('404');
-});
+
 
 module.exports = router;
