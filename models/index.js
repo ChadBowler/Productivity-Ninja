@@ -20,18 +20,15 @@ User.hasMany(Task, {
 });
 
 User.belongsTo(Project, {
-  foreignKey: 'project_id',
-  onDelete: 'CASCADE'
+  foreignKey: 'project_id'
 });
 
 Task.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  foreignKey: 'user_id'
 });
 
 Task.belongsTo(Project, {
-  foreignKey: 'project_id',
-  onDelete: 'CASCADE'
+  foreignKey: 'project_id'
 });
 
 module.exports = { User, Task, Project };

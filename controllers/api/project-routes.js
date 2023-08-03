@@ -21,15 +21,15 @@ router.get('/:id', async (req, res) => {
       include: [
         {
           model: Task,
-          attributes: ['name'],
+          attributes: ['name', 'status'],
         },
       ],
     });
-    console.log(projectData);
-    const project = projectData.get({ plain: true });
 
+    const project = projectData.get({ plain: true });
+    console.log(project);
     res.render('show-projects', {
-      ...project,
+      project,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
