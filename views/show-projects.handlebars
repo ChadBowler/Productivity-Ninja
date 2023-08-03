@@ -28,7 +28,7 @@
                 <h3>Unfinished Tasks</h3>
                 <button class="new-task btn btn-outline-light button">Add new task</button>
             </div>
-            <ul>
+            <ul class="m-3">
                 {{#each tasks as |task|}} 
                     {{#unless status}}
                         <li class="task-list-item">
@@ -86,7 +86,7 @@
             <p>New Task</p>
             <button type="button" class="btn-close" aria-label="Close"></button>
         </div>
-        <form method="POST" action="/api/tasks">
+        <form class="add-task-form" action="">
             <div class="mb-3">
                 <label for="new-task-name" class="form-label">Task Name</label>
                 <input type="name" class="form-control" id="new-task-name" placeholder="Task...">
@@ -99,7 +99,7 @@
             <select class="form-select" id="new-task-employee" aria-label="Default select example">
                 <option selected>Select an employee</option>
                 {{#each users as |user|}}
-                    <option value="{{id}}">{{username}}</option>
+                    <option value="{{username}}">{{username}}</option>
                 {{/each}}
             </select>
             <button class="button btn" type="submit">Submit</button>
@@ -134,6 +134,6 @@
 </div>
 <script src="/js/progress-circle.js"></script>
 {{!-- <script src="/js/update.js"></script> --}}
-{{!-- <script src="/js/delete.js"></script> --}}
+<script src="/js/add.js"></script>
 <script src="/js/script.js"></script>
 

@@ -16,7 +16,6 @@ const addEmployee = (e) => {
   employeeSelectForm.classList.remove('hidden');
 };
 const addEmployeeToProject = async () => {
-  console.log('something');
   const projectId = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
@@ -43,9 +42,9 @@ const addEmployeeToProject = async () => {
 };
 const selectEmployee = (e) => {
   e.preventDefault();
-  addEmployeeToProject();
   let employeeSelectForm = document.getElementById('employee-select-form');
   employeeSelectForm.classList.add('hidden');
+  addEmployeeToProject();
 };
 const closeBox = (e) => {
   e.preventDefault();

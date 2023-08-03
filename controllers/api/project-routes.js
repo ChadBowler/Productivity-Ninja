@@ -38,8 +38,6 @@ router.get('/:id', async (req, res) => {
     );
     const newUsers = userData.map((user) => user.toJSON());
     const project = projectData.get({ plain: true });
-    console.log(project);
-    console.log(newUsers);
     res.render('show-projects', {
       ...project,
       newUsers,
