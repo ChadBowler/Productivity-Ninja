@@ -16,7 +16,7 @@ const projectFormHandler = async (e) => {
     if (response.ok) {
       document.location.reload();
     } else {
-      alert('Something went wrong!');
+      alert(response.statusText);
     }
   }
 };

@@ -1,14 +1,8 @@
 //front end logic for editing tasks
-
 const editTaskForm = document.querySelector('.edit-task-button');
-
-
-
-
 
 const taskUpdateHandler = async (e) => {
   e.preventDefault();
-  console.log(editId);
   //get elements from the page
   const id = editId;
   const editTaskName = document.querySelector('#edit-task-name').value.trim();
@@ -26,12 +20,11 @@ const taskUpdateHandler = async (e) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
-    //reload page after editing the task, or send alert if it didn't work
+    //reload page and hide the form after editing the task, or send alert if it didn't work
     if (response.ok) {
       editTaskForm.classList.add('hidden');
       document.location.reload();
     } else {
-      console.log(response);
       alert(response.statusText);
     }
   }
