@@ -18,14 +18,16 @@
         </ul>
 	</div>
 	<div class="container bdr col col-5 p-3">
-		<h3>Progress Circle</h3>
+		<h3>Project Progress</h3>
         <div class="progress-circle" id="progress-circle">
-            <p><span id="progress-text"></span>%</p>
+            <p class="progress-text"><span id="progress-text"></span>%</p>
         </div> 
 	</div>
 		<div id="incomplete-tasks" class="incomplete-tasks container bdr col col-5 p-3">
-			<h3>Unfinished Tasks</h3>
-            <button class="new-task">Add new task</button>
+            <div class="d-flex justify-content-around">
+                <h3>Unfinished Tasks</h3>
+                <button class="new-task btn btn-outline-light button">Add new task</button>
+            </div>
             <ul>
                 {{#each tasks as |task|}} 
                     {{#unless status}}
@@ -54,21 +56,30 @@
             </ul>
 		</div>
     <div class="employees container bdr col col-5 p-3">
-      <h3>Employees</h3>
-        <ul>
+        <div class="d-flex justify-content-around">
+            <h3>Employees</h3>
+            <button class="new-employee btn btn-outline-light button">Add employee to this project</button>
+        </div>
+      <div class="d-flex justify-content-between">
+        <ul class="">
             {{#each users as |user|}}
-                <li>{{username}}</li>
+                <li class="task-list-item">{{username}}</li>
             {{/each}}
         </ul>
         <ul>
             
         </ul>
-        <select class="form-select" aria-label="Default select example">
+        <form id="employee-select-form" class="hidden m-5" action="">
+            <select id="employee-select" class="form-select employee-select m-4" aria-label="Default select example">
             <option selected>Add employee to this project</option>
             {{#each newUsers as |newUser|}}
-                <option value="{{id}}">{{username}}</option>
+                <option value="{{username}}">{{username}}</option>
             {{/each}}
         </select>
+        </form>
+        
+      </div>
+        
     </div>
     <div id="new-task-form" class="new-task task-form hidden container bdr col col-3 p-2">
         <div class="col d-flex justify-content-between"  data-bs-theme="dark">
