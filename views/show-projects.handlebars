@@ -44,9 +44,7 @@
                                     </form>
                                 </div>
                                 <div class="col">
-                                    <form method="POST" action="/api/tasks/{{id}}?_method=PUT">
-                                        <button class="button-link" type="submit" disabled>Edit</button>
-                                    </form>
+                                    <button id="edit-{{id}}" data-id="{{id}}" class="button-link open-edit" type="button">Edit</button>
                                 </div>
                             </div>
                         </li>
@@ -71,9 +69,9 @@
             {{/each}}
         </select>
     </div>
-    <div id="new-task-form" class="new-task task-form hide container bdr col col-3 offset-4 mt-5">
+    <div id="new-task-form" class="new-task task-form hide container bdr col col-3 p-2">
         <p>New Task</p>
-        <form action="">
+        <form method="POST" action="/api/tasks">
             <div class="mb-3">
                 <label for="new-task-name" class="form-label">Task Name</label>
                 <input type="name" class="form-control" id="new-task-name" placeholder="Task...">
@@ -93,9 +91,13 @@
         </form>
         
     </div>
-    <div id="edit-task-form" class="edit-task task-form hide container bdr col col-3 offset-4 mt-5">
-        <p>Edit Task</p>
-        <form action="">
+    <div id="edit-task-form" class="edit-task task-form hidden container bdr col col-3 p-2">
+        <div class="col d-flex justify-content-between"  data-bs-theme="dark">
+            <p>Edit Task</p>
+            <button type="button" class="btn-close" aria-label="Close"></button>
+        </div>
+        
+        <form method="POST" action="/api/tasks/{{id}}?_method=PUT">
             <div class="mb-3">
                 <label for="edit-task-name" class="form-label">Task Name</label>
                 <input type="name" class="form-control" id="edit-task-name" placeholder="Task...">
@@ -118,5 +120,5 @@
 <script src="/js/progress-circle.js"></script>
 {{!-- <script src="/js/update.js"></script> --}}
 {{!-- <script src="/js/delete.js"></script> --}}
-<script src="/js/add.js"></script>
+<script src="/js/script.js"></script>
 
