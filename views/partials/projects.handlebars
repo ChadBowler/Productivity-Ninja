@@ -1,15 +1,21 @@
-<section class="container projects">
-  {{!-- <img src=> --}}
-  <div class="project-list">
-    <h3></h3>
-    <h2>Projects</h2>
-      <ul>
+<section class='container projects'>
+  {{! <img src=> }}
+  <div class='project-list'>
+
+    <div class='container text-center mt-5'>
+      <h2>Projects</h2>
+      <div class='row row-cols-2'>
+
         {{#each projects as |project|}}
-        <a href="/api/projects/{{project.id}}"><li>{{project.name}}</li></a>
-          
+          <div class='col'>
+            <a
+              class='container mt-5 btn btn-outline-light button btn-lg'
+              href='/api/projects/{{project.id}}'
+            >{{project.name}}</a>
+          </div>
         {{/each}}
-      </ul>
-    <p></p>
-    <p></p>
+
+      </div>
+    </div>
   </div>
 </section>
