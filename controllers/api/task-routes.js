@@ -33,7 +33,6 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 router.put('/complete/:id', withAuth, async (req, res) => {
-  console.log('request body:' + req.body);
   try {
     const updateTask = await Task.update(
       {

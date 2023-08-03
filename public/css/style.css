@@ -132,3 +132,26 @@ background-color: white;
   font-size: 2rem;
   z-index: 1;
 }
+.task-list-item {
+  list-style-type: none;
+}
+.task-form {
+  position: absolute;
+  background-color: #1B2B67;
+  border-radius: 20px;
+  color: white;
+}
+.project-container {
+  position: relative;
+}
+.no-resize {
+  resize: none;
+}
+/* .project-container::after {
+  content: url('/assets/logo/Black_and_Red_Ninja.png');
+  position: absolute;
+  z-index: -2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
