@@ -1,38 +1,25 @@
-<div class="navbar-section nav-top-container"></div>
-
+ <div class="navbar-section nav-top-container">
+    {{> navbar}}
+</div>
 <div class="row gx-5">
-	<div class="project-title container bdr col col-12 text-center p-3">
-		<h3>Title:</h3>
-		<h1>{{name}}</h1>
-	</div>
-	<div class="completed-tasks container bdr col col-5 p-3">
-		<h3>Completed Tasks</h3>
-			<ul>
-				{{#each tasks as |task|}} 
-					{{#if task.status}}
-						<li>{{task.name}}</li>
-					{{/if}}
-				{{/each}}
-			</ul>
-	</div>
-	<div class="progress-bar container bdr col col-5 p-3">
-		<h3>Progress Bar</h3>
-	</div>
-		<div class="unfinished-tasks container bdr col col-5 p-3">
-			<h3>Unfinished Tasks</h3>
-				<ul>
-					{{#each tasks as |task|}} 
-						{{#unless task.status}}
-							<li>{{task.name}}</li>
-						{{/unless}}
-					{{/each}}
-				</ul>
-		</div>
+    <div class="project-title container bdr col col-12 text-center p-3">
+        <p>Title</p>
+    </div>
+    <div class="completed-tasks container bdr col col-5 p-3">
+        <p>Completed Tasks</p>
+    </div>
+    <div class="progress-bar container bdr col col-5 p-3">
+        <p>Progress Bar</p>
+    </div>
+    <div class="unfinished-tasks container bdr col col-5 p-3">
+        <p>Unfinished Tasks</p>
+    </div>
+    
     <div class="employees container bdr col col-5 p-3">
-      <h3>Employees</h3>
+        <p>Employees</p>
     </div>
 </div>
-<div class="new-task hide container bdr">
-  <h3>New Task</h3>
-</div>
 
+<div class="new-task hide container bdr">
+    <p>New Task</p>
+</div>
