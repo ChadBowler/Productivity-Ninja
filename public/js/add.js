@@ -1,4 +1,5 @@
 //front end logic for adding data
+//adding a new project
 const projectFormHandler = async (e) => {
   e.preventDefault();
 
@@ -19,33 +20,33 @@ const projectFormHandler = async (e) => {
     }
   }
 };
-
+//adding new tasks to a project
 const taskFormHandler = async (e) => {
   e.preventDefault();
+  const taskName = document.querySelector('#new-task-name').value.trim();
+  const description = document.querySelector('#new-task-description').value.trim();
+  const projectId = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
+  const projId = projectId.substring(-1, 1);
+  const userId = document.querySelector('#new-task-employee').value;
+  if (taskName && description && userId) {
 
-  const taskName = document.querySelector('#task-name').value.trim();
-  const content = document.querySelector('#task-content').value.trim();
-  const projectId = document.querySelector('#project-id').value;
-  const userId = document.querySelector('#user-select').value;
-
-  if (taskName && content && userId) {
-
-    const response = await fetch(`/api/tasks/${projectId}`, {
+    const response = await fetch('/api/tasks', {
       method: 'POST',
       body: JSON.stringify({
         name: taskName,
-        description: content,
+        description: description,
         status: false,
         user_id: userId,
-        project_id: projectId
+        project_id: projId
       }),
       headers: { 'Content-Type': 'application/json' },
     });
-    console.log(response);
     if (response.ok) {
       document.location.reload();
     } else {
-      alert('Something went wrong!');
+      alert(response.statusText);
       // document.location = response.redirectUrl;
     }
   }
