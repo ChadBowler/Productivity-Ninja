@@ -140,6 +140,9 @@ background-color: white;
   background-color: #1B2B67;
   border-radius: 20px;
   color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .project-container {
   position: relative;
@@ -147,6 +150,7 @@ background-color: white;
 .no-resize {
   resize: none;
 }
+
 /* .project-container::after {
   content: url('/assets/logo/Black_and_Red_Ninja.png');
   position: absolute;
