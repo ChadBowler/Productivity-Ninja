@@ -83,6 +83,7 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 router.delete('/:id', withAuth, async (req, res) => {
+  console.log(req.params);
   try {
     const taskData = await Task.destroy({
       where: {
@@ -93,7 +94,8 @@ router.delete('/:id', withAuth, async (req, res) => {
       res.status(404).json({ message: 'No task found with that id!' });
       return;
     }
-    res.status(200).json(taskData);
+    // res.status(200).json(taskData);
+    res.status(200).redirect('back');
   } catch (err) {
     res.status(500).json(err);
   }
