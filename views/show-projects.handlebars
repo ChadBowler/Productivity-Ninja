@@ -25,6 +25,7 @@
 	</div>
 		<div id="incomplete-tasks" class="incomplete-tasks container bdr col col-5 p-3">
 			<h3>Unfinished Tasks</h3>
+            <button class="new-task">Add new task</button>
             <ul>
                 {{#each tasks as |task|}} 
                     {{#unless status}}
@@ -69,8 +70,11 @@
             {{/each}}
         </select>
     </div>
-    <div id="new-task-form" class="new-task task-form hide container bdr col col-3 p-2">
-        <p>New Task</p>
+    <div id="new-task-form" class="new-task task-form hidden container bdr col col-3 p-2">
+        <div class="col d-flex justify-content-between"  data-bs-theme="dark">
+            <p>New Task</p>
+            <button type="button" class="btn-close" aria-label="Close"></button>
+        </div>
         <form method="POST" action="/api/tasks">
             <div class="mb-3">
                 <label for="new-task-name" class="form-label">Task Name</label>
