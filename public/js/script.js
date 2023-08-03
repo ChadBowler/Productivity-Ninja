@@ -1,7 +1,11 @@
+var editId;
 const openEditForm = (e) => {
   e.preventDefault();
+//   console.log(e.target.id.slice(5));
+  editId = e.target.id.slice(5);
   let editForm = document.getElementById('edit-task-form');
   editForm.classList.remove('hidden');
+  return editId;
 };
 const openTaskForm = (e) => {
   e.preventDefault();
