@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Project, Task } = require('../../models');
+const { Project, Task, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -21,7 +21,11 @@ router.get('/:id', async (req, res) => {
       include: [
         {
           model: Task,
-          attributes: ['name', 'status'],
+          attributes: ['name', 'status', 'id'],
+        },
+        {
+          model: User,
+          attributes: ['username', 'project_id'],
         },
       ],
     });
@@ -29,7 +33,7 @@ router.get('/:id', async (req, res) => {
     const project = projectData.get({ plain: true });
     console.log(project);
     res.render('show-projects', {
-      project,
+      ...project,
       logged_in: req.session.logged_in,
     });
   } catch (err) {

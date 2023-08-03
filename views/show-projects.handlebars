@@ -1,46 +1,74 @@
-<div class="navbar-section nav-top-container"></div>
+<div class="navbar-section nav-top-container">
+    {{> navbar}}
+</div>
 
 <div class="row gx-5">
 	<div class="project-title container bdr col col-12 text-center p-3">
 		<h3>Title:</h3>
 		<h1>{{name}}</h1>
 	</div>
-	<div class="completed-tasks container bdr col col-5 p-3">
+	<div id="complete-tasks" class="complete-tasks container bdr col col-5 p-3">
 		<h3>Completed Tasks</h3>
-			<ul>
-				{{#each tasks as |task|}} 
-					{{#if task.status}}
-						<li>{{task.name}}</li>
-					{{/if}}
-				{{/each}}
-			</ul>
+        <ul>
+            {{#each tasks as |task|}} 
+                {{#if task.status}}
+                    <li>{{task.name}}</li>
+                {{/if}}
+            {{/each}}
+        </ul>
 	</div>
-	<div class="progress-bar container bdr col col-5 p-3">
-		<h3>Progress Bar</h3>
+	<div class="container bdr col col-5 p-3">
+		<h3>Progress Circle</h3>
+        <div class="progress-circle" id="progress-circle">
+            <p><span id="progress-text"></span>%</p>
+        </div> 
 	</div>
-		<div class="unfinished-tasks container bdr col col-5 p-3">
+		<div id="incomplete-tasks" class="incomplete-tasks container bdr col col-5 p-3">
 			<h3>Unfinished Tasks</h3>
-				<ul>
-					{{#each tasks as |task|}} 
-						{{#unless task.status}}
-							<li>{{task.name}}</li>
-						{{/unless}}
-					{{/each}}
-				</ul>
+            <ul>
+                {{#each tasks as |task|}} 
+                    {{#unless status}}
+                        <li>{{name}}
+                            <form method="POST" action="/api/tasks/complete/{{id}}?_method=PUT">
+                                <button class="button-link complete-task" type="submit">Complete</button>
+                            </form>
+                            <form method="POST" action="/api/tasks/{{id}}?_method=DELETE">
+                                <button class="button-link" type="submit">Delete</button>
+                            </form>
+                            <form method="POST" action="?_method=DELETE">
+                                <button class="button-link" type="submit" disabled>Edit</button>
+                            </form>
+                            {{!-- <a href="/api/tasks/complete/{{task.id}}" class="complete-task"><span id="complete-task-{{task.id}}">Complete | </span></a>
+                            <a href="/api/tasks/{{task.id}}" class="delete-task"><span id="delete-task-{{task.id}}">Delete | </span></a>
+                            <a href="/api/tasks/{{task.id}}" class="edit-task"><span id="edit-task-{{task.id}}">Edit</span></a> --}}
+                        </li>
+                    {{/unless}}
+                {{/each}}
+            </ul>
 		</div>
     <div class="employees container bdr col col-5 p-3">
       <h3>Employees</h3>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
     </div>
 </div>
 
 
 <div class="new-task hide container bdr">
     <p>New Task</p>
-    <option value="">
-        <select name="" id="">
-
+    <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
         </select>
-    </option>
 </div>
 <script src="/js/progress-circle.js"></script>
+<script src="/js/update.js"></script>
+<script src="/js/delete.js"></script>
+<script src="/js/add.js"></script>
 

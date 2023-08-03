@@ -20,11 +20,10 @@ const projectDeleteHandler = async (event) => {
   }
 };
 //front end logic for deleting tasks
-const taskDeleteHandler = async (event) => {
-  event.preventDefault();
+const taskDeleteHandler = async (e) => {
+  e.preventDefault();
   //getting the id of the selected task
-  const id = document.querySelector('#task-id').value;
-
+  const id = e.target.id.slice(13);
   if (id) {
     const response = await fetch(`/api/tasks/${id}`, {
       method: 'DELETE',

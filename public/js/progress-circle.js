@@ -1,9 +1,11 @@
 
 const completeTasks = function () {
-  const ctasks = document.getElementById('complete-tasks');
+  const ctasks = document.getElementById('complete-tasks').children[1].children;
+  return ctasks.length;
 };
 const incompleteTasks = function () {
-  const itasks = document.getElementById('incomplete-tasks');
+  const itasks = document.getElementById('incomplete-tasks').children[1].children;
+  return itasks.length;
 };
 
 
@@ -12,7 +14,7 @@ function fillProgressCircle(completeTasks, incompleteTasks) {
   let totalTasks = completeTasks + incompleteTasks;
   let progressPercent = completeTasks / totalTasks * 100;
 
-  if (typeof progressPercent === NaN) {
+  if (Number.isNaN(progressPercent)) {
     progressPercent = 0;
   }
 
@@ -20,7 +22,7 @@ function fillProgressCircle(completeTasks, incompleteTasks) {
   let progressCircle = document.getElementById('progress-circle');
 
   progressCirclePercent.innerHTML = progressPercent.toFixed(0);
-  progressCircle.style=`background-image: conic-gradient(#009933 0% ${progressPercent}%, #ce2315 ${progressPercent}% 100%);`;
+  progressCircle.style=`background-image: conic-gradient(#0cacf7 0% ${progressPercent}%, black ${progressPercent}% 100%);`;
 }
 
-fillProgressCircle(0, 0);
+fillProgressCircle(completeTasks(), incompleteTasks());

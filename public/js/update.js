@@ -43,7 +43,8 @@ const taskUpdateHandler = async (e) => {
 
 const handleCompleteTask = async (e) => {
   e.preventDefault();
-  const id = e.target.data-taskId;
+  const id = e.target.id.splice(15);
+  console.log(id);
 
   const response = await fetch(`/api/tasks/complete/${id}`, {
     method: 'PUT',
