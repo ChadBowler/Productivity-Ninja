@@ -21,7 +21,7 @@ router.get('/:id', async (req, res) => {
       include: [
         {
           model: Task,
-          attributes: ['name', 'status', 'id'],
+          attributes: ['name', 'status', 'id', 'user_id'],
         },
         {
           model: User,
@@ -29,11 +29,20 @@ router.get('/:id', async (req, res) => {
         },
       ],
     });
-
+    const userData = await User.findAll(
+      {
+        where: {
+          project_id: null,
+        },
+      }
+    );
+    const newUsers = userData.map((user) => user.toJSON());
     const project = projectData.get({ plain: true });
     console.log(project);
+    console.log(newUsers);
     res.render('show-projects', {
       ...project,
+      newUsers,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
