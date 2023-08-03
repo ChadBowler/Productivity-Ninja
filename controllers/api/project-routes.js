@@ -3,7 +3,7 @@ const { Project, Task } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
-  console.log('here');
+
   try {
     const projectData = await Project.findAll();
     const projects = projectData.map((project) => project.toJSON());

@@ -1,3 +1,10 @@
-<footer>
-  <p>&copy; 2023 Project Ninja</p>
-</footer>
+
+{{#if logged_in}}
+  <footer class="footer-dark">
+    <p>&copy; 2023 Project Ninja</p>
+  </footer>
+{{else}}
+  <footer>
+    <p>&copy; 2023 Project Ninja</p>
+  </footer>
+{{/if}}

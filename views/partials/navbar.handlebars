@@ -1,27 +1,23 @@
-<nav class='navbar navbar-expand navbar-dark bg-danger'>
-        <div class='container'>
-          <!-- Add the logo image -->
-          <a class='navbar-brand' href='#'>
-            <img
-              src='/assets/logo/Black_and_Red_Ninja.png'
-              alt='Productivity Ninja Logo'
-              height='40'
-            />
-          </a>
-          <ul class='navbar-nav ml-auto'>
-            {{#if logged_in}}
-              <li class='nav-item'>
-                <a class='nav-link' href='/'>Dashboard</a>
-                <button id="logout" class='btn btn-outline-light'>Logout</button>
-              </li>
-            {{else}}
-              <li class='nav-item'>
-                <a class='nav-link' href='/login'>Login</a>
-                <a class='nav-link' href='/signup'>Signup</a>
-                
-              </li>
-            {{/if}}
-          </ul>
-        </div>
-      </nav>
-      <script src="./js/logout.js"></script>
+<nav class='navbar navbar-expand navbar-dark bg-dark nav-top-container'>
+    <div class='nav-container container justify-content-between'>
+        <!-- Add the logo image -->
+        <a class='navbar-brand' href='/'>
+        <img
+            class="ninja-icon nav-logo"
+            src='/assets/logo/blue_ninja.png'
+            alt='Productivity Ninja Logo'
+        />
+        </a>
+        
+        <div class="title fs-1">Productivity Ninja</div>
+        <ul class='navbar-nav'>
+            <li class='nav-item m-2 d-flex align-items-center'>
+            <a class='nav-link' href='/'>Dashboard</a>
+            </li>
+            <li class='nav-item m-2'>
+            <button id="logout" class='btn btn-outline-light button'>Logout</button>
+            </li>
+        </ul>
+    </div>
+</nav>
+<script src="/js/logout.js"></script>

@@ -1,23 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Sign Up</title>
-</head>
-<body>
-  <div class="form-group"></div>
-    <h2>Sign Up</h2>
+
+  <div class="form-group signup-container"></div>
+    <img class="ninja-icon" src="/assets/logo/blue_ninja.png" alt="blue ninja">
       <form class="signup-form" action="/api/users" method="post">
-        
+        <h2 style="color: white;">Sign Up</h2>
         <label for="username">Username:</label>
-        <input type="text" name="username" id="username-signup" required>
+        <input class="text-input" type="text" name="username" id="username-signup" required>
 
         <label for="password">Password:</label>
-        <input type="password" name="password" id="password-signup" required>
+        <input class="text-input" type="password" name="password" id="password-signup" required>
 
-        <button class="btn btn-danger" type="submit">sign up</button>
+        <button class="btn button" type="submit">Sign Up</button>
       </form>
+      <div class="form-subtext">
+        <h3 class="page-title" style="color: white;">Have an account? <a class="link-span" href="/login"><span>Login here</span></a></h3>
+      </div>
   </div>
-</body>
-</html>
+
 
 <script src="./js/login.js"></script>

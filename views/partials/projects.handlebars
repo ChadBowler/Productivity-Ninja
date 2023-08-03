@@ -1,11 +1,12 @@
-<section class="projects">
+<section class="container projects">
   {{!-- <img src=> --}}
   <div class="project-list">
     <h3></h3>
     <h2>Projects</h2>
       <ul>
-        {{#each projects}}
-          <li>{{this}}</li>
+        {{#each projects as |project|}}
+        <a href="/api/projects/{{project.id}}"><li>{{project.name}}</li></a>
+          
         {{/each}}
       </ul>
     <p></p>
