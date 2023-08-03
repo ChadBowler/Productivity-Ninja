@@ -73,7 +73,7 @@ label {
 }
 .button-link {
 border: none;
-background-color: white;
+background-color: rgba(0, 0, 0, 0);
 }
 .button-link:hover {
   color: #0cacf7;
@@ -106,6 +106,10 @@ background-color: white;
 }
 .nav-top-container {
   width: 100%;
+  background-image: url('/assets/logo/dark_mist.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 80px;
 }
 .title {
   color: white;
@@ -128,8 +132,7 @@ background-color: white;
   z-index: -1;
 }
 .progress-text {
-  color: black;
-  font-size: 2rem;
+  font-size: 4rem;
   z-index: 1;
 }
 .task-list-item {
@@ -151,6 +154,12 @@ background-color: white;
   resize: none;
 }
 
+/* .container {
+  background-color: rgba(30, 92, 167, 0.53);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+} */
 /* .project-container::after {
   content: url('/assets/logo/Black_and_Red_Ninja.png');
   position: absolute;
