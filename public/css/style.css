@@ -69,6 +69,9 @@ footer {
 label {
   font-size: 1.5rem;
 }
+.hidden {
+  display: none;
+}
 .button {
   border: 5px solid rgb(112, 112, 112);
   border-radius: 20px;
@@ -83,7 +86,8 @@ label {
 }
 .button-link:hover {
   color: #0cacf7;
-}
+  font-weight: 900;
+  }
 .link-span {
   text-decoration: none;
   color: white;
@@ -121,9 +125,9 @@ label {
   color: white;
   font-family: 'Trade Winds', cursive;
 }
-.bdr {
-  border: 5px solid black;
-}
+/* .bdr {
+  border: 5px solid black
+} */
 .progress-circle {
   position: relative;
   display: flex;
@@ -158,6 +162,9 @@ label {
 }
 .no-resize {
   resize: none;
+}
+.remove {
+  color: red;
 }
 
 /* .container {
