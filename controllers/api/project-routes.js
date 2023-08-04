@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Project, Task } = require('../../models');
+const { Project, Task, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -21,15 +21,26 @@ router.get('/:id', async (req, res) => {
       include: [
         {
           model: Task,
-          attributes: ['name'],
+          attributes: ['name', 'status', 'id', 'user_id'],
+        },
+        {
+          model: User,
+          attributes: ['username', 'project_id'],
         },
       ],
     });
-    console.log(projectData);
+    const userData = await User.findAll(
+      {
+        where: {
+          project_id: null,
+        },
+      }
+    );
+    const newUsers = userData.map((user) => user.toJSON());
     const project = projectData.get({ plain: true });
-
     res.render('show-projects', {
       ...project,
+      newUsers,
       logged_in: req.session.logged_in,
     });
   } catch (err) {

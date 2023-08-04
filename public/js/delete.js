@@ -19,33 +19,6 @@ const projectDeleteHandler = async (event) => {
     }
   }
 };
-//front end logic for deleting tasks
-const taskDeleteHandler = async (event) => {
-  event.preventDefault();
-  //getting the id of the selected task
-  const id = document.querySelector('#task-id').value;
-
-  if (id) {
-    const response = await fetch(`/api/tasks/${id}`, {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (response.ok) {
-      document.location.reload();
-    } else {
-      alert(response.statusText);
-    }
-  }
-};
-
-try {
-  document
-    .querySelector('.delete-task')
-    .addEventListener('click', taskDeleteHandler);
-} catch (error) {
-  console.log(error);
-}
 
 try {
   document
@@ -54,3 +27,4 @@ try {
 } catch (error) {
   console.log(error);
 }
+//deleted the delete task function because we're now using method override and doing it all on the back end.

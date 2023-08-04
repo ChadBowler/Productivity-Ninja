@@ -71,6 +71,13 @@ label {
   font-weight: 700;
   /* box-shadow: 2px 2px rgb(112, 112, 112); */
 }
+.button-link {
+border: none;
+background-color: rgba(0, 0, 0, 0);
+}
+.button-link:hover {
+  color: #0cacf7;
+  }
 .link-span {
   text-decoration: none;
   color: white;
@@ -99,6 +106,10 @@ label {
 }
 .nav-top-container {
   width: 100%;
+  background-image: url('/assets/logo/dark_mist.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 80px;
 }
 .title {
   color: white;
@@ -107,3 +118,53 @@ label {
 .bdr {
   border: 5px solid black
 }
+.progress-circle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  border: 4px solid black;
+  margin: auto;
+  color: white;
+  z-index: -1;
+}
+.progress-text {
+  font-size: 4rem;
+  z-index: 1;
+}
+.task-list-item {
+  list-style-type: none;
+}
+.task-form {
+  position: absolute;
+  background-color: #1B2B67;
+  border-radius: 20px;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.project-container {
+  position: relative;
+}
+.no-resize {
+  resize: none;
+}
+
+/* .container {
+  background-color: rgba(30, 92, 167, 0.53);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+} */
+/* .project-container::after {
+  content: url('/assets/logo/Black_and_Red_Ninja.png');
+  position: absolute;
+  z-index: -2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */

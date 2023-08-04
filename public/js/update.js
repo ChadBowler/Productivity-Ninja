@@ -1,68 +1,37 @@
-//front end logic for updating tasks
-
-const addTaskButton = document.querySelector('#add-task-button');
-const editTaskForm = document.querySelector('.edit-task-form');
-const completeTaskButton = document.querySelector('.complete-task');
-
-
-function openTaskForm() {
-  editTaskForm.classList.remove('hide');
-}
-
+//front end logic for editing tasks
+const editTaskForm = document.querySelector('.edit-task-button');
 
 const taskUpdateHandler = async (e) => {
   e.preventDefault();
-  console.log('here');
   //get elements from the page
-  const id = e.target.data-taskId;
-  const newTaskName = document.querySelector('#new-task-name').value.trim();
-  const newUserName = document.querySelector('#new-user-name').value;
-  const newContent = document.querySelector('#new-task-content').value;
+  const id = editId;
+  const editTaskName = document.querySelector('#edit-task-name').value.trim();
+  const editUserName = document.querySelector('#edit-task-employee').value;
+  const editDescription = document.querySelector('#edit-task-description').value;
 
-  if (newTaskName && newContent) {
+  if (editTaskName && editDescription) {
     const response = await fetch(`/api/tasks/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
-        name: newTaskName,
-        user_id: newUserName,
-        description: newContent
+        name: editTaskName,
+        user_id: editUserName,
+        description: editDescription
       }),
       headers: { 'Content-Type': 'application/json' },
     });
 
-    //reload page after updating the task, or send alert if it didn't work
+    //reload page and hide the form after editing the task, or send alert if it didn't work
     if (response.ok) {
-      editTaskForm.classList.add('hide');
+      editTaskForm.classList.add('hidden');
       document.location.reload();
     } else {
-      console.log(response);
       alert(response.statusText);
     }
   }
 };
 
-const handleCompleteTask = async (e) => {
-  e.preventDefault();
-  const id = e.target.data-taskId;
-
-  const response = await fetch(`/api/tasks/complete/${id}`, {
-    method: 'PUT',
-    body: JSON.stringify({
-      status: true
-    }),
-    headers: { 'Content-Type': 'application/json' }
-  });
-  if (response.ok) {
-    document.location.reload();
-  } else {
-    alert(response.statusText);
-  }
-};
-
 try {
-  addTaskButton.addEventListener('click', openTaskForm);
   editTaskForm.addEventListener('click', taskUpdateHandler);
-  completeTaskButton.addEventListener('click', handleCompleteTask);
 } catch (error) {
   console.log(error);
 }

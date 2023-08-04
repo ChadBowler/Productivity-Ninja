@@ -1,25 +1,139 @@
- <div class="navbar-section nav-top-container">
+<div class="navbar-section nav-top-container">
     {{> navbar}}
 </div>
-<div class="row gx-5">
-    <div class="project-title container bdr col col-12 text-center p-3">
-        <p>Title</p>
-    </div>
-    <div class="completed-tasks container bdr col col-5 p-3">
-        <p>Completed Tasks</p>
-    </div>
-    <div class="progress-bar container bdr col col-5 p-3">
-        <p>Progress Bar</p>
-    </div>
-    <div class="unfinished-tasks container bdr col col-5 p-3">
-        <p>Unfinished Tasks</p>
-    </div>
-    
-    <div class="employees container bdr col col-5 p-3">
-        <p>Employees</p>
-    </div>
-</div>
 
-<div class="new-task hide container bdr">
-    <p>New Task</p>
+<div class="row gx-5 project-container">
+	<div class="project-title container bdr col col-12 text-center p-3">
+		<h3>Title:</h3>
+		<h1>{{name}}</h1>
+	</div>
+	<div id="complete-tasks" class="complete-tasks container bdr col col-5 p-3">
+		<h3>Completed Tasks</h3>
+        <ul>
+            {{#each tasks as |task|}} 
+                {{#if task.status}}
+                    <li class="task-list-item">{{task.name}}</li>
+                {{/if}}
+            {{/each}}
+        </ul>
+	</div>
+	<div class="container bdr col col-5 p-3">
+		<h3>Project Progress</h3>
+        <div class="progress-circle" id="progress-circle">
+            <p class="progress-text"><span id="progress-text"></span>%</p>
+        </div> 
+	</div>
+		<div id="incomplete-tasks" class="incomplete-tasks container bdr col col-5 p-3">
+            <div class="d-flex justify-content-around">
+                <h3>Unfinished Tasks</h3>
+                <button class="new-task btn btn-outline-light button">Add new task</button>
+            </div>
+            <ul class="m-3">
+                {{#each tasks as |task|}} 
+                    {{#unless status}}
+                        <li class="task-list-item">
+                            <div class="row">
+                                <div class="col col-6">
+                                    {{name}}
+                                </div>
+                                <div class="col">
+                                    <form method="POST" action="/api/tasks/complete/{{id}}?_method=PUT">
+                                        <button class="button-link complete-task" type="submit">Complete</button>
+                                    </form>
+                                </div>
+                                <div class="col">
+                                    <form method="POST" action="/api/tasks/{{id}}?_method=DELETE">
+                                        <button class="button-link" type="submit">Delete</button>
+                                    </form>
+                                </div>
+                                <div class="col">
+                                    <button id="edit-{{id}}" data-id="{{id}}" class="button-link open-edit" type="button">Edit</button>
+                                </div>
+                            </div>
+                        </li>
+                    {{/unless}}
+                {{/each}}
+            </ul>
+		</div>
+    <div class="employees container bdr col col-5 p-3">
+        <div class="d-flex justify-content-around">
+            <h3>Employees</h3>
+            <button class="new-employee btn btn-outline-light button">Add employee to this project</button>
+        </div>
+      <div class="d-flex justify-content-between">
+        <ul class="">
+            {{#each users as |user|}}
+                <li class="task-list-item">{{username}}</li>
+            {{/each}}
+        </ul>
+        <ul>
+            
+        </ul>
+        <form id="employee-select-form" class="hidden m-5" action="">
+            <select id="employee-select" class="form-select employee-select m-4" aria-label="Default select example">
+            <option selected>Add employee to this project</option>
+            {{#each newUsers as |newUser|}}
+                <option value="{{username}}">{{username}}</option>
+            {{/each}}
+        </select>
+        </form>
+        
+      </div>
+        
+    </div>
+    <div id="new-task-form" class="new-task task-form hidden container bdr col col-3 p-2">
+        <div class="col d-flex justify-content-between"  data-bs-theme="dark">
+            <p>New Task</p>
+            <button type="button" class="btn-close" aria-label="Close"></button>
+        </div>
+        <form class="add-task-form" action="">
+            <div class="mb-3">
+                <label for="new-task-name" class="form-label">Task Name</label>
+                <input type="name" class="form-control" id="new-task-name" placeholder="Task...">
+            </div>
+            <div class="mb-3">
+                <label for="new-task-description" class="form-label">Task Description</label>
+                <textarea class="form-control no-resize" id="new-task-description" rows="3"></textarea>
+            </div>
+            <label for="new-task-employee" class="form-label">Employee</label>
+            <select class="form-select" id="new-task-employee" aria-label="Default select example">
+                <option selected>Select an employee</option>
+                {{#each users as |user|}}
+                    <option value="{{username}}">{{username}}</option>
+                {{/each}}
+            </select>
+            <button class="button btn" type="submit">Submit</button>
+        </form>
+        
+    </div>
+    <div id="edit-task-form" class="edit-task task-form hidden container bdr col col-3 p-2">
+        <div class="col d-flex justify-content-between"  data-bs-theme="dark">
+            <p>Edit Task</p>
+            <button type="button" class="btn-close" aria-label="Close"></button>
+        </div>
+        
+        <form action="">
+            <div class="mb-3">
+                <label for="edit-task-name" class="form-label">Task Name</label>
+                <input type="name" class="form-control" id="edit-task-name" placeholder="Task...">
+            </div>
+            <div class="mb-3">
+                <label for="edit-task-description" class="form-label">Task Description</label>
+                <textarea class="form-control no-resize" id="edit-task-description" rows="3"></textarea>
+            </div>
+            <label for="edit-task-employee" class="form-label">Employee</label>
+            <select class="form-select" id="edit-task-employee" aria-label="Default select example">
+                <option selected>Select an employee</option>
+                {{#each users as |user|}}
+                    <option value="{{username}}">{{username}}</option>
+                {{/each}}
+            </select>
+            <button class="button btn edit-task-button" type="submit">Submit</button>
+        </form>
+    </div>
 </div>
+<script src="/js/progress-circle.js"></script>
+<script src="/js/update.js"></script>
+<script src="/js/add.js"></script>
+<script src="/js/script.js"></script>
+
