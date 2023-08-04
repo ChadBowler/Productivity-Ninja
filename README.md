@@ -6,7 +6,7 @@
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
  
  ## Description
- The Productivity Ninja is an interactive API that can track the progress of Projects and their tasks. This API utilizes SQL databases to store Users, Tasks, Projects and dynamic Javascript and Handlebars to add/edit and delete Projects and their respective tasks. 
+ The Productivity Ninja is an interactive front end with a back-end Restful API that can track the progress of Projects and their tasks. This API utilizes SQL databases to store Users, Tasks, Projects and dynamic Javascript and Handlebars to add/edit and delete Projects and their respective tasks. 
 
  Git Repository link: https://github.com/ChadBowler/Productivity-Ninja
  
@@ -34,7 +34,7 @@
  Contributions are welcome. Please create an independent branch and go through the customary and polite channels to initiate collaboration.
  
  ## Tests
- 
+ No tests have been written for this file set. Passive debugging processes were undertaken to ensure the compatability and functionality of this website and its moving parts. 
   
 
  ## Questions
