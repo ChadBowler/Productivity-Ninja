@@ -3,11 +3,12 @@ const { Project, Task, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
-
   try {
     const projectData = await Project.findAll();
     const projects = projectData.map((project) => project.toJSON());
-    res.status(200).render('show-projects', { projects, logged_in: req.session.logged_in });
+    res
+      .status(200)
+      .render('show-projects', { projects, logged_in: req.session.logged_in });
     console.log(projects);
   } catch (err) {
     console.log(err);
@@ -29,13 +30,11 @@ router.get('/:id', async (req, res) => {
         },
       ],
     });
-    const userData = await User.findAll(
-      {
-        where: {
-          project_id: null,
-        },
-      }
-    );
+    const userData = await User.findAll({
+      where: {
+        project_id: null,
+      },
+    });
     const newUsers = userData.map((user) => user.toJSON());
     const project = projectData.get({ plain: true });
     res.render('show-projects', {
@@ -81,6 +80,33 @@ router.put('/:id', withAuth, async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
+  }
+});
+
+// PATCH request to set the status of project to sucess (mark as complete) ✅✅
+
+router.patch('/markAsComplete', async (req, res) => {
+  try {
+    const updatedProject = await Project.update(
+      {
+        status: true,
+      },
+      {
+        where: {
+          id: req.body.projectId,
+        },
+      },
+    );
+    if (!updatedProject[0]) {
+      res.status(404).json({ message: 'No project found!' });
+    }
+    res.status(200).json({
+      status: 'success',
+      message: 'Marked project as complete',
+      updatedProject,
+    });
+  } catch (error) {
+    res.status(500).json(error);
   }
 });
 

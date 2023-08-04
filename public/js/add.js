@@ -67,3 +67,28 @@ try {
 } catch (error) {
   console.log(error);
 }
+
+// handler to mark the project as complete ✅✅
+const markAsCompleteBtn = document.querySelector('.mark-as-complete');
+if (markAsCompleteBtn) {
+  markAsCompleteBtn.addEventListener('click', async function () {
+    // get project id from current url
+    const projectId = Number(window.location.href.slice(-1));
+    // api call to set status to -- true
+    const response = await fetch('/api/projects/markAsComplete', {
+      method: 'PATCH',
+      body: JSON.stringify({
+        projectId,
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    const res = await response.json();
+    console.log(res);
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert(response.statusText);
+    }
+  });
+}

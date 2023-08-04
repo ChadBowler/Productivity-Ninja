@@ -6,7 +6,7 @@
       {{#each projects as |project|}}
         <div class='col'>
           <a
-            class='container mt-5 btn btn-outline-light button btn-lg'
+            class='container mt-5 btn btn-lg btn-outline-light{{#if (isComplete project.status)}} btn-success {{else}} button{{/if}}'
             href='/api/projects/{{project.id}}'
           >{{project.name}}</a>
         </div>

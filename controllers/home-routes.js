@@ -14,8 +14,11 @@ router.get('/', async (req, res) => {
         res.status(404).json({ message: 'No projects found!' });
         return;
       }
-      const projects = projectData.map((project) => project.get({ plain:true }));
+      const projects = projectData.map((project) =>
+        project.get({ plain: true }),
+      );
       res.render('homepage', { projects, logged_in: req.session.logged_in });
+      console.log('THIS GIVES US PROJECTS');
       console.log(projects);
     }
   } catch (err) {
@@ -38,7 +41,7 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-  res.render('login', {logged_in: req.session.logged_in});
+  res.render('login', { logged_in: req.session.logged_in });
 });
 
 module.exports = router;

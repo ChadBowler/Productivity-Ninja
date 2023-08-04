@@ -24,9 +24,14 @@
         </div> 
 	</div>
 		<div id="incomplete-tasks" class="incomplete-tasks container bdr col col-5 p-3">
-            <div class="d-flex justify-content-around">
+            <div class="d-flex justify-content-between">
                 <h3>Unfinished Tasks</h3>
-                <button class="new-task btn btn-outline-light button">Add new task</button>
+                <div class="d-flex align-items-center">
+                    {{#if (isEmpty tasks status)}}
+                        <button class="btn btn-success mx-2 mark-as-complete">Mark as complete</button>
+                    {{/if}}
+                    <button class="new-task btn btn-primary">Add new task</button>
+                </div>
             </div>
             <ul class="m-3">
                 {{#each tasks as |task|}} 

@@ -14,7 +14,6 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ helpers });
-
 const sess = {
   secret: process.env.SESSION_SECRET,
   cookie: {
@@ -43,5 +42,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Server started on http://localhost:${PORT}/`));
+  app.listen(PORT, () =>
+    console.log(`Server started on http://localhost:${PORT}/`),
+  );
 });

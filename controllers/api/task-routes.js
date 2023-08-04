@@ -1,12 +1,14 @@
 const router = require('express').Router();
 const { Task } = require('../../models');
 const withAuth = require('../../utils/auth');
-
+const Project = require('../../models/Project');
 router.get('/', async (req, res) => {
   try {
     const taskData = await Task.findAll();
     const tasks = taskData.map((task) => task.toJSON());
-    res.status(200).render('homepage', { tasks, logged_in: req.session.logged_in });
+    res
+      .status(200)
+      .render('homepage', { tasks, logged_in: req.session.logged_in });
     console.log(tasks);
   } catch (err) {
     res.status(500).json(err);
@@ -16,6 +18,20 @@ router.get('/', async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
   try {
     console.log(req.body);
+
+    const project = await Project.update(
+      {
+        status: false,
+      },
+      {
+        where: {
+          id: req.body.project_id,
+        },
+      },
+    );
+
+    console.log(project);
+
     const newTask = await Task.create({
       ...req.body,
       name: req.body.name,
