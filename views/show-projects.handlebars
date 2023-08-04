@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="col">
                                     <form method="POST" action="/api/tasks/{{id}}?_method=DELETE">
-                                        <button class="button-link remove" type="submit">Delete</button>
+                                        <button class="button-link" type="submit">Delete</button>
                                     </form>
                                 </div>
                                 <div class="col">
@@ -63,12 +63,7 @@
       <div class="d-flex justify-content-between">
         <ul class="">
             {{#each users as |user|}}
-            <div class="d-flex">
                 <li class="task-list-item">{{username}}</li>
-                <form method="POST" action="/api/users/remove-from-project/{{username}}?_method=PUT">
-                    <button class="button-link remove" type="submit">Remove</button>
-                </form>
-            </div>
             {{/each}}
         </ul>
         <ul>

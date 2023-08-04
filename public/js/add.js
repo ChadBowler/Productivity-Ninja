@@ -6,6 +6,7 @@ const projectFormHandler = async (e) => {
   const name = document.querySelector('#project-name').value.trim();
 
   if (title) {
+
     const response = await fetch('/api/projects/', {
       method: 'POST',
       body: JSON.stringify({ name }),
@@ -23,15 +24,14 @@ const projectFormHandler = async (e) => {
 const taskFormHandler = async (e) => {
   e.preventDefault();
   const taskName = document.querySelector('#new-task-name').value.trim();
-  const description = document
-    .querySelector('#new-task-description')
-    .value.trim();
+  const description = document.querySelector('#new-task-description').value.trim();
   const projectId = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
   const projId = projectId.substring(-1, 1);
   const userId = document.querySelector('#new-task-employee').value;
   if (taskName && description && userId) {
+
     const response = await fetch('/api/tasks', {
       method: 'POST',
       body: JSON.stringify({
@@ -39,7 +39,7 @@ const taskFormHandler = async (e) => {
         description: description,
         status: false,
         user_id: userId,
-        project_id: projId,
+        project_id: projId
       }),
       headers: { 'Content-Type': 'application/json' },
     });
