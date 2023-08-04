@@ -85,7 +85,30 @@ router.put('/add-to-project', async (req, res) => {
     res.status(400).json(err);
   }
 });
+router.put('/remove-from-project/:id', async (req, res) => {
+  try {
+    const removeUser = await User.update(
+      {
+        project_id: null,
+      },
+      {
+        where: { username: req.params.id },
+      },
+    );
 
+    if (!removeUser[0]) {
+      res
+        .status(400)
+        .json({
+          message: 'No project found with that id, or username is incorrect.',
+        });
+      return;
+    }
+    res.status(200).redirect('back');
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
