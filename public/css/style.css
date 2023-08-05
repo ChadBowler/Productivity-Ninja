@@ -89,7 +89,7 @@ label {
 .button-link:hover {
   color: #0cacf7;
   font-weight: 900;
-  }
+}
 .link-span {
   text-decoration: none;
   color: white;
@@ -148,10 +148,11 @@ label {
   font-size: 4rem;
   z-index: 1;
   color: white;
-	text-shadow: -1px 1px 2px black,
-				  1px 1px 2px black,
-				  1px -1px 0 black,
-				  -1px -1px 0 black;
+  text-shadow:
+    -1px 1px 2px black,
+    1px 1px 2px black,
+    1px -1px 0 black,
+    -1px -1px 0 black;
 }
 .task-list-item {
   position: relative;
@@ -165,7 +166,7 @@ label {
 }
 .task-list-item::after {
   position: absolute;
-  content: "";
+  content: '';
   left: -8%;
   top: 0;
   width: 100%;
@@ -176,8 +177,8 @@ label {
 .task-form {
   position: absolute;
   /* background-color: #1b2b67; */
-  background: #343A40;
-  background: repeating-linear-gradient(to top left, #343A40 0%, #0CACF7 100%);
+  background: #343a40;
+  background: repeating-linear-gradient(to top left, #343a40 0%, #0cacf7 100%);
   border: 3px solid black;
   border-radius: 20px;
   color: white;
@@ -188,34 +189,31 @@ label {
 .project-container {
   position: relative;
   font-family: 'Lilita One', cursive;
-  
 }
 .project-containers {
   /* background: #343A40; */
   position: relative;
-  
- 
+
   /* background-color: rgba(46, 105, 216, 0.5); */
   color: whitesmoke;
   font-size: 1.2rem;
-	
 }
 .project-containers::after {
- content: "";
- position: absolute;
- background: repeating-linear-gradient(to top left, #343A40 0%, #0CACF7 100%);
- border-radius: 20px;
- width: 90%;
- height: 90%;
- top: 0;
- left: 0;
- z-index: -2;
+  content: '';
+  position: absolute;
+  background: repeating-linear-gradient(to top left, #343a40 0%, #0cacf7 100%);
+  border-radius: 20px;
+  width: 90%;
+  height: 90%;
+  top: 0;
+  left: 0;
+  z-index: -2;
 }
 .no-resize {
   resize: none;
 }
 .remove {
-  color: #BF0F0F;
+  color: #bf0f0f;
 }
 .remove:hover {
   color: red;
