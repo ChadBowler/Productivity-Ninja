@@ -22,7 +22,7 @@ function fillProgressCircle(completeTasks, incompleteTasks) {
   let progressCircle = document.getElementById('progress-circle');
 
   progressCirclePercent.innerHTML = progressPercent.toFixed(0);
-  progressCircle.style=`background-image: conic-gradient(#0cacf7 0% ${progressPercent}%, black ${progressPercent}% 100%);`;
+  progressCircle.style=`background-image: conic-gradient(#08678C 0% ${progressPercent}%, black ${progressPercent}% 100%);`;
 }
 
 fillProgressCircle(completeTasks(), incompleteTasks());
