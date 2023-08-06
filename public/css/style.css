@@ -159,12 +159,9 @@ label {
   font-family: 'Lilita One', cursive;
   list-style-type: none;
   font-size: 1.4rem;
-  /* text-shadow: -1px 1px 1px white,
-				  1px 1px 1px white,
-				  1px -1px 0 white,
-				  -1px -1px 0 white; */
+
 }
-.task-list-item::after {
+.task-list-bottom-border::after {
   position: absolute;
   content: '';
   left: -8%;
