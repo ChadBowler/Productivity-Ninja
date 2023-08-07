@@ -2,80 +2,89 @@
     {{> navbar}}
 </div>
 
-<div class="row gx-5 project-container">
-	<div class="project-title container bdr col col-12 text-center p-3">
-		<h3>Title:</h3>
-		<h1>{{name}}</h1>
+<div class="row gx-5 project-container mb-5">
+	<div class="project-title container bdr col col-12 text-center p-5">
+		<h1>Title:</h1>
+		<h2 class="fs-1">{{name}}</h2>
 	</div>
-	<div id="complete-tasks" class="complete-tasks container bdr col col-5 p-3">
-		<h3>Completed Tasks</h3>
+	<div id="complete-tasks" class="complete-tasks project-containers container bdr col-sm-11 col-md-11 col-lg-6 p-5">
+		<h3 class="fs-1">Completed Tasks</h3>
+
+
+        <div>
+    <form id="complete-form-{{project.id}}" method="POST" action="/api/projects/complete/{{project.id}}">
+        <input type="hidden" name="_method" value="PUT">
+        <button id="project-complete-button-{{project.id}}" type="submit" title="Click to complete and return to Dashboard" class="project-complete btn btn-outline-light button">Complete Project</button>
+    </form>
+</div>
+
+
         <ul>
             {{#each tasks as |task|}} 
                 {{#if task.status}}
-                    <li class="task-list-item">{{task.name}}</li>
+                    <li class="task-list-item task-list-bottom-border fs-4">{{task.name}} - {{task.user_id}}</li>
                 {{/if}}
             {{/each}}
         </ul>
 	</div>
-	<div class="container bdr col col-5 p-3">
-		<h3>Project Progress</h3>
+	<div class="container project-containers bdr col-sm-11 col-md-11 col-lg-5 p-5">
+		<h3 class="fs-1">Project Progress</h3>
         <div class="progress-circle" id="progress-circle">
             <p class="progress-text"><span id="progress-text"></span>%</p>
         </div> 
 	</div>
-		<div id="incomplete-tasks" class="incomplete-tasks container bdr col col-5 p-3">
-            <div class="d-flex justify-content-around">
-                <h3>Unfinished Tasks</h3>
-                <button class="new-task btn btn-outline-light button">Add new task</button>
-            </div>
-            <ul class="m-3">
-                {{#each tasks as |task|}} 
-                    {{#unless status}}
-                        <li class="task-list-item">
-                            <div class="row">
-                                <div class="col col-6">
-                                    {{name}}
-                                </div>
-                                <div class="col">
-                                    <form method="POST" action="/api/tasks/complete/{{id}}?_method=PUT">
-                                        <button class="button-link complete-task" type="submit">Complete</button>
-                                    </form>
-                                </div>
-                                <div class="col">
-                                    <form method="POST" action="/api/tasks/{{id}}?_method=DELETE">
-                                        <button class="button-link remove" type="submit">Delete</button>
-                                    </form>
-                                </div>
-                                <div class="col">
-                                    <button id="edit-{{id}}" data-id="{{id}}" class="button-link open-edit" type="button">Edit</button>
-                                </div>
-                            </div>
-                        </li>
-                    {{/unless}}
-                {{/each}}
-            </ul>
-		</div>
-    <div class="employees container bdr col col-5 p-3">
+    <div id="incomplete-tasks" class="incomplete-tasks project-containers container bdr col-sm-11 col-md-11 col-lg-6 p-5">
         <div class="d-flex justify-content-around">
-            <h3>Employees</h3>
-            <button class="new-employee btn btn-outline-light button">Add employee to this project</button>
+            <h3 class="fs-1">Unfinished Tasks</h3>
+            <button class="new-task btn btn-outline-light button">Add new task</button>
+        </div>
+        <ul class="m-3 p-0" id="unfinished-task-list">
+            {{#each tasks as |task|}} 
+                {{#unless status}}
+                    <li class="task-list-item task-list-bottom-border fs-4" data-employee="{{user_id}}" id="unfinished-{{id}}-{{user_id}}">
+                        <div class="row">
+                            <div class="col col-4">
+                                {{name}} - {{user_id}}
+                            </div>
+                            
+                            <div class="col p-2">
+                                <form method="POST" action="/api/tasks/complete/{{id}}?_method=PUT">
+                                    <button class="button-link complete-task" type="submit">Complete</button>
+                                </form>
+                            </div>
+                            <div class="col p-2">
+                                <form method="POST" action="/api/tasks/{{id}}?_method=DELETE">
+                                    <button class="button-link remove" type="submit">Delete</button>
+                                </form>
+                            </div>
+                            <div class="col p-2">
+                                <button id="edit-{{id}}" data-id="{{id}}" class="button-link open-edit" type="button">Edit</button>
+                            </div>
+                        </div>
+                    </li>
+                {{/unless}}
+            {{/each}}
+        </ul>
+    </div>
+    <div class="employees container project-containers bdr col-sm-11 col-md-11 col-lg-5 p-5">
+        <div class="d-flex justify-content-around">
+            <h3 class="fs-1">Employees</h3>
+            <button class="new-employee btn btn-outline-light button fs-4">Add employee to this project</button>
         </div>
       <div class="d-flex justify-content-between">
-        <ul class="">
+        <ul class="" id="project-employee-list">
             {{#each users as |user|}}
-            <div class="d-flex">
-                <li class="task-list-item">{{username}}</li>
-                <form method="POST" action="/api/users/remove-from-project/{{username}}?_method=PUT">
-                    <button class="button-link remove" type="submit">Remove</button>
+            <div class="d-flex" data-user="{{username}}">
+                <li class="task-list-item mb-1 fs-4" style="border-bottom: none;">{{username}}</li>
+                <form method="POST" action="/api/users/remove-from-project/{{username}}?_method=PUT" id="remove-{{username}}">
+                    <button class="button-link remove fs-4 ps-5" type="submit">Remove</button>
                 </form>
             </div>
             {{/each}}
         </ul>
-        <ul>
-            
-        </ul>
-        <form id="employee-select-form" class="hidden m-5" action="">
-            <select id="employee-select" class="form-select employee-select m-4" aria-label="Default select example">
+       
+        <form id="employee-select-form" class="hidden fs-4 m-5" action="">
+            <select id="employee-select" class="form-select employee-select fs-4 m-4" aria-label="Default select example">
             <option selected>Add employee to this project</option>
             {{#each newUsers as |newUser|}}
                 <option value="{{username}}">{{username}}</option>
