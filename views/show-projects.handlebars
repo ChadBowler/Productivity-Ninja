@@ -36,7 +36,9 @@
     <div id="incomplete-tasks" class="incomplete-tasks project-containers container bdr col-sm-11 col-md-11 col-lg-6 p-5">
         <div class="d-flex justify-content-around">
             <h3 class="fs-1">Unfinished Tasks</h3>
+            {{#unless status}}
             <button class="new-task btn btn-outline-light button">Add new task</button>
+            {{/unless}}
         </div>
         <ul class="m-3 p-0" id="unfinished-task-list">
             {{#each tasks as |task|}} 
@@ -69,7 +71,10 @@
     <div class="employees container project-containers bdr col-sm-11 col-md-11 col-lg-5 p-5">
         <div class="d-flex justify-content-around">
             <h3 class="fs-1">Employees</h3>
-            <button class="new-employee btn btn-outline-light button fs-4">Add employee to this project</button>
+            {{#unless status}}
+                <button class="new-employee btn btn-outline-light button fs-4">Add employee to this project</button>
+            {{/unless}}
+            
         </div>
       <div class="d-flex justify-content-between">
         <ul class="" id="project-employee-list">
@@ -91,9 +96,7 @@
             {{/each}}
         </select>
         </form>
-        
       </div>
-        
     </div>
     <div id="new-task-form" class="new-task task-form hidden container bdr col col-3 p-2">
         <div class="col d-flex justify-content-between"  data-bs-theme="dark">

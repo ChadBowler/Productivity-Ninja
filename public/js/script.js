@@ -90,7 +90,7 @@ document
         body: JSON.stringify({ status: true }),
       });
       if (updateResponse.ok) {
-        alert('Project status updated.');
+        // alert('Project status updated.');
         window.location.href = '/';
       }
     } else {
@@ -126,6 +126,10 @@ function disableRemoveUser() {
 }
 
 window.onload = disableRemoveUser;
+try {
+  document.querySelector('.new-task').addEventListener('click', openTaskForm);
+  document.querySelector('.new-employee').addEventListener('click', addEmployee);
+} catch (error) {
+  console.log(error);
+}
 
-document.querySelector('.new-task').addEventListener('click', openTaskForm);
-document.querySelector('.new-employee').addEventListener('click', addEmployee);
