@@ -84,7 +84,7 @@ document
     ];
 
     if (id) {
-      const updateResponse = await fetch(`/api/projects/${id}`, {
+      const updateResponse = await fetch(`/api/projects/complete/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: true }),
@@ -95,13 +95,6 @@ document
       }
     } else {
       alert('Failed to update project status.');
-    }
-    try {
-      document
-        .querySelector('.delete-project')
-        .addEventListener('click', projectDeleteHandler);
-    } catch (error) {
-      console.log(error);
     }
   });
 
