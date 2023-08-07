@@ -63,69 +63,69 @@ const closeBox = (e) => {
 };
 //adding event listeners to multiple buttons at once
 let openEditButtons = document.querySelectorAll('.open-edit');
-openEditButtons.forEach(function(button) {
+openEditButtons.forEach(function (button) {
   button.addEventListener('click', openEditForm);
 });
 let closeBoxButton = document.querySelectorAll('.btn-close');
-closeBoxButton.forEach(function(button) {
+closeBoxButton.forEach(function (button) {
   button.addEventListener('click', closeBox);
 });
 //adding the employee to a project runs as soon as the select field changes
 let employeeSelect = document.getElementById('employee-select');
 employeeSelect.addEventListener('change', selectEmployee);
 
+//complete project button updates the status
 document
-  .getElementById('project-complete-button-{{project.id}}')
+  .getElementById('project-complete-button')
   .addEventListener('click', async function (event) {
     event.preventDefault();
+    const id = window.location.toString().split('/')[
+      window.location.toString().split('/').length - 1
+    ];
 
-    try {
-      const projectId = '{{project.id}}';
-      // send the put request to update project status
-      const updateResponse = await fetch(`/api/projects/complete/${projectId}`, {
+    if (id) {
+      const updateResponse = await fetch(`/api/projects/${id}`, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          status: true,
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: true }),
       });
       if (updateResponse.ok) {
-        // send the request to delete the project
-        const deleteResponse = await fetch(`/api/projects/${projectId}`, {
-          method: 'DELETE',
-        });
-        if (deleteResponse.ok) {
-          alert('Project completed and deleted.');
-          window.location.href = '/dashboard';
-        } else {
-          alert('Failed to delete project.');
-        }
-      } else {
-        alert('Failed to update project status.');
+        alert('Project status updated.');
+        window.location.href = '/';
       }
+    } else {
+      alert('Failed to update project status.');
+    }
+    try {
+      document
+        .querySelector('.delete-project')
+        .addEventListener('click', projectDeleteHandler);
     } catch (error) {
-      console.error(error);
-      alert('An error occurred.');
+      console.log(error);
     }
   });
 
 //function to disable remove option if a user has unfinished tasks
 function disableRemoveUser() {
-  let unfinishedTaskList = document.getElementById('unfinished-task-list').children;
+  let unfinishedTaskList = document.getElementById(
+    'unfinished-task-list',
+  ).children;
   let projectEmployeeList = document.getElementById('project-employee-list');
 
   if (unfinishedTaskList.length !== 0) {
     for (let i = 0; i < projectEmployeeList.children.length; i++) {
-      let employeeProjectName = projectEmployeeList.children[i].getAttribute('data-user');
+      let employeeProjectName =
+        projectEmployeeList.children[i].getAttribute('data-user');
       for (let j = 0; j < unfinishedTaskList.length; j++) {
-        let employeeTaskName = unfinishedTaskList[j].getAttribute('data-employee');
+        let employeeTaskName =
+          unfinishedTaskList[j].getAttribute('data-employee');
         if (employeeProjectName === employeeTaskName) {
           projectEmployeeList.children[i].children[1].classList.add('hidden');
           break;
         } else {
-          projectEmployeeList.children[i].children[1].classList.remove('hidden');
+          projectEmployeeList.children[i].children[1].classList.remove(
+            'hidden',
+          );
         }
       }
     }
@@ -134,9 +134,5 @@ function disableRemoveUser() {
 
 window.onload = disableRemoveUser;
 
-document
-  .querySelector('.new-task')
-  .addEventListener('click', openTaskForm);
-document
-  .querySelector('.new-employee')
-  .addEventListener('click', addEmployee);
+document.querySelector('.new-task').addEventListener('click', openTaskForm);
+document.querySelector('.new-employee').addEventListener('click', addEmployee);

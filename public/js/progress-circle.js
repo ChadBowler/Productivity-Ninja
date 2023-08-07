@@ -23,6 +23,7 @@ function fillProgressCircle(completeTasks, incompleteTasks) {
   progressCirclePercent.innerHTML = progressPercent.toFixed(0);
   progressCircle.style = `background-image: conic-gradient(#08678C 0% ${progressPercent}%, black ${progressPercent}% 100%);`;
 
+  // complete project button appears when the progress circle is 100% and there are  tasks in the completed task section
   if (completeTasks > 0 && progressPercent === 100) {
     projectCompleteButton.style.display = 'block';
   } else {
