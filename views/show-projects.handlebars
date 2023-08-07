@@ -9,6 +9,16 @@
 	</div>
 	<div id="complete-tasks" class="complete-tasks project-containers container bdr col-sm-11 col-md-11 col-lg-6 p-5">
 		<h3 class="fs-1">Completed Tasks</h3>
+        
+
+        <div>
+            <form id="complete-form-{{project.id}}" method="POST" action="/api/projects/complete/{{project.id}}">
+                <input type="hidden" name="_method" value="PUT">
+                <button id="project-complete-button-{{project.id}}" type="submit" title="Click to complete and return to Dashboard" class="project-complete btn btn-outline-light button">Complete Project</button>
+            </form>
+        </div>
+
+
         <ul>
             {{#each tasks as |task|}} 
                 {{#if task.status}}
