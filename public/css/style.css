@@ -31,6 +31,7 @@ footer {
 
 .btn {
   fill: black;
+  color: black;
 }
 .form-group h2,
 .signup-form,
@@ -81,13 +82,14 @@ label {
   /* box-shadow: 2px 2px rgb(112, 112, 112); */
 }
 .button-link {
+  color: whitesmoke;
   border: none;
   background-color: rgba(0, 0, 0, 0);
 }
 .button-link:hover {
   color: #0cacf7;
   font-weight: 900;
-  }
+}
 .link-span {
   text-decoration: none;
   color: white;
@@ -138,19 +140,43 @@ label {
   border-radius: 50%;
   border: 4px solid black;
   margin: auto;
+  margin-bottom: 20px;
   color: white;
   z-index: -1;
 }
 .progress-text {
   font-size: 4rem;
   z-index: 1;
+  color: white;
+  text-shadow:
+    -1px 1px 2px black,
+    1px 1px 2px black,
+    1px -1px 0 black,
+    -1px -1px 0 black;
 }
 .task-list-item {
+  position: relative;
+  font-family: 'Lilita One', cursive;
   list-style-type: none;
+  font-size: 1.4rem;
+
+}
+.task-list-bottom-border::after {
+  position: absolute;
+  content: '';
+  left: -8%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid white;
+  z-index: -1;
 }
 .task-form {
   position: absolute;
-  background-color: #1b2b67;
+  /* background-color: #1b2b67; */
+  background: #343a40;
+  background: repeating-linear-gradient(to top left, #343a40 0%, #0cacf7 100%);
+  border: 3px solid black;
   border-radius: 20px;
   color: white;
   top: 50%;
@@ -159,11 +185,34 @@ label {
 }
 .project-container {
   position: relative;
+  font-family: 'Lilita One', cursive;
+}
+.project-containers {
+  /* background: #343A40; */
+  position: relative;
+
+  /* background-color: rgba(46, 105, 216, 0.5); */
+  color: whitesmoke;
+  font-size: 1.2rem;
+}
+.project-containers::after {
+  content: '';
+  position: absolute;
+  background: repeating-linear-gradient(to top left, #343a40 0%, #0cacf7 100%);
+  border-radius: 20px;
+  width: 100%;
+  height: 90%;
+  top: 0;
+  left: 0;
+  z-index: -2;
 }
 .no-resize {
   resize: none;
 }
 .remove {
+  color: #bf0f0f;
+}
+.remove:hover {
   color: red;
 }
 
@@ -173,20 +222,21 @@ label {
   padding: 10px;
   margin: 10px;
 } */
-/* .project-container::after {
-  content: url('/assets/logo/Black_and_Red_Ninja.png');
+.project-container::after {
+  content: url('/assets/logo/blue_ninja.png');
   position: absolute;
   z-index: -2;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-} */
+  transform: translate(-50%, -40%);
+  opacity: 0.6;
+}
 
 .hidden {
   display: none;
 }
 
-.pad-bg {
+/* .pad-bg {
   background: #f8f8f8;
   padding: 40px 20px;
   border-radius: 5px;
@@ -199,4 +249,30 @@ label {
     margin-bottom: 30px;
     border-bottom: 1px dashed #ccc;
   }
+} */
+
+.project-containers-create {
+  /* background: #343A40; */
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+
+  /* background-color: rgba(46, 105, 216, 0.5); */
+  color: whitesmoke;
+  font-size: 1.2rem;
+}
+.project-containers-create::after {
+  content: '';
+  position: absolute;
+  background: repeating-linear-gradient(to top left, #343a40 0%, #0cacf7 100%);
+  margin: auto;
+  padding: auto;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -2;
 }

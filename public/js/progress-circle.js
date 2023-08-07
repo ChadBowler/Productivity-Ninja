@@ -21,7 +21,7 @@ function fillProgressCircle(completeTasks, incompleteTasks) {
   let projectCompleteButton = document.getElementById('project-complete-button');
 
   progressCirclePercent.innerHTML = progressPercent.toFixed(0);
-  progressCircle.style = `background-image: conic-gradient(#08678C 0% ${progressPercent}%, black ${progressPercent}% 100%);`;
+  progressCircle.style=`background-image: conic-gradient(#0cacf7 0% ${progressPercent}%, black ${progressPercent}% 100%);`;
 
   if (completeTasks > 0 && progressPercent === 100) {
     projectCompleteButton.style.display = 'block';
