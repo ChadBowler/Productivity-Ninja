@@ -74,6 +74,43 @@ closeBoxButton.forEach(function(button) {
 let employeeSelect = document.getElementById('employee-select');
 employeeSelect.addEventListener('change', selectEmployee);
 
+document
+  .getElementById('project-complete-button-{{project.id}}')
+  .addEventListener('click', async function (event) {
+    event.preventDefault();
+
+    try {
+      const projectId = '{{project.id}}';
+      // send the put request to update project status
+      const updateResponse = await fetch(`/api/projects/complete/${projectId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          status: true,
+        }),
+      });
+      if (updateResponse.ok) {
+        // send the request to delete the project
+        const deleteResponse = await fetch(`/api/projects/${projectId}`, {
+          method: 'DELETE',
+        });
+        if (deleteResponse.ok) {
+          alert('Project completed and deleted.');
+          window.location.href = '/dashboard';
+        } else {
+          alert('Failed to delete project.');
+        }
+      } else {
+        alert('Failed to update project status.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('An error occurred.');
+    }
+  });
+
 //function to disable remove option if a user has unfinished tasks
 function disableRemoveUser() {
   let unfinishedTaskList = document.getElementById('unfinished-task-list').children;
