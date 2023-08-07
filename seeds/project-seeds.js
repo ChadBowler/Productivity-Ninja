@@ -22,6 +22,7 @@ const projectData = [
     name: 'Project 5',
     status: false
   }
+
 ];
 
 const seedProjects = () => Project.bulkCreate(projectData);
