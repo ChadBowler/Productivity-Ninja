@@ -10,7 +10,7 @@
 
  Git Repository link: https://github.com/ChadBowler/Productivity-Ninja
  
- Heroku Live URL link:
+ Heroku Live URL link: https://productivity-ninja-d6cc6908ff4d.herokuapp.com
  
 
  ## Table of Contents
