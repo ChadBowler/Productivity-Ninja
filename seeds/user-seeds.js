@@ -6,13 +6,13 @@ const userData = [
     name: 'Saul',
     username: 'saulbrego',
     password: 'password1234',
-    project_id: 3
+    project_id: 1
   },
   {
     name: 'Jane',
     username: 'janedoe',
     password: 'password1234',
-    project_id: 1
+    project_id: 2
   },
   {
     name: 'John',
@@ -36,7 +36,7 @@ const userData = [
     name: 'Paul',
     username: 'pauldavis',
     password: 'password1234',
-    project_id: 1
+    project_id: 5
   },
   {
     name: 'Elizabeth',

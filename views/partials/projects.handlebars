@@ -2,16 +2,18 @@
   <div class='container text-center mt-5'>
     <h2 class='fs-1'>Current Projects</h2>
     <div class='row row-cols-2'>
-
       {{#each projects as |project|}}
         <div class='col col-lg-6 col-sm-12'>
           <a
-            class='container mt-5 btn btn-outline-light button btn-lg'
-            href='/api/projects/{{project.id}}'
-          >{{project.name}}</a>
+              class='container mt-5 btn btn-outline-light button btn-lg'
+              href='/api/projects/{{project.id}}'
+            >{{project.name}}
+            {{#if project.status}}
+              <span style="color: green;"> &#x2714;</span>
+            {{/if}}
+          </a>
         </div>
       {{/each}}
-
     </div>
   </div>
 </div>

@@ -16,7 +16,6 @@ router.get('/', async (req, res) => {
       }
       const projects = projectData.map((project) => project.get({ plain:true }));
       res.render('homepage', { projects, logged_in: req.session.logged_in });
-      console.log(projects);
     }
   } catch (err) {
     res.status(500).json(err);
