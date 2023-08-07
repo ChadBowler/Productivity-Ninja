@@ -78,29 +78,19 @@ employeeSelect.addEventListener('change', selectEmployee);
 function disableRemoveUser() {
   let unfinishedTaskList = document.getElementById('unfinished-task-list').children;
   let projectEmployeeList = document.getElementById('project-employee-list');
-  let unfinishedEmployees = [];
-  let currentEmployees = [];
+
   if (unfinishedTaskList.length !== 0) {
-
-
     for (let i = 0; i < projectEmployeeList.children.length; i++) {
-      // console.log(unfinishedTaskList[i].getAttribute('data-employee'));
       let employeeProjectName = projectEmployeeList.children[i].getAttribute('data-user');
       for (let j = 0; j < unfinishedTaskList.length; j++) {
-        // console.log(projectEmployeeList.children[j].getAttribute('data-user'));
         let employeeTaskName = unfinishedTaskList[j].getAttribute('data-employee');
         if (employeeProjectName === employeeTaskName) {
-          console.log(true);
-          // console.log(projectEmployeeList.children[j].children[1]);
           projectEmployeeList.children[i].children[1].classList.add('hidden');
           break;
         } else {
-          console.log(false);
           projectEmployeeList.children[i].children[1].classList.remove('hidden');
         }
-
       }
-
     }
   }
 }
