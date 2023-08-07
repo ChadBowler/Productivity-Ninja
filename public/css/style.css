@@ -188,12 +188,12 @@ label {
   font-family: 'Lilita One', cursive;
 }
 .project-containers {
-  /* background: #343A40; */
   position: relative;
-
-  /* background-color: rgba(46, 105, 216, 0.5); */
   color: whitesmoke;
   font-size: 1.2rem;
+}
+.project-list, .add-project-form {
+  font-family: 'Lilita One', cursive;
 }
 .project-containers::after {
   content: '';
