@@ -27,21 +27,21 @@ const taskData = [
     description: 'New frameworks needed for team to improve testing.',
     status: true,
     user_id: 'saulbrego',
-    project_id: 2
+    project_id: 1
   },
   {
     name: 'Fix Bugs',
     description: '',
     status: false,
     user_id: 'janedoe',
-    project_id: 1
+    project_id: 2
   },
   {
     name: 'Build API',
     description: 'Client has asked for new API, build and demo.',
     status: true,
-    user_id: 'saulbrego',
-    project_id: 1
+    user_id: 'elizabethmoore',
+    project_id: 4
   },
   {
     name: 'Write blog post',
@@ -54,21 +54,21 @@ const taskData = [
     name: 'Fix bug in website',
     description: 'There is a bug in the website that is causing users to be logged out.',
     status: true,
-    user_id: 'saulbrego',
-    project_id: 2
+    user_id: 'pauldavis',
+    project_id: 5
   },
   {
     name: 'Add new feature to website',
     description: 'Add a new feature to the website that allows users to upload images.',
     status: false,
-    user_id: 'saulbrego',
+    user_id: 'michaelanderson',
     project_id: 2
   },
   {
     name: 'Deploy new code to production',
     description: 'Deploy the new code to production so that users can use the new features.',
     status: true,
-    user_id: 'saulbrego',
+    user_id: 'sarahthomas',
     project_id: 3
   },
   {
@@ -76,20 +76,20 @@ const taskData = [
     description: 'Write unit tests to ensure that the new code works as expected.',
     status: false,
     user_id: 'johnsmith',
-    project_id: 3
+    project_id: 2
   },
   {
     name: 'Create documentation',
     description: 'Create documentation for the new features so that users can use them.',
     status: true,
-    user_id: 'saulbrego',
+    user_id: 'thomaswilliams',
     project_id: 4
   },
   {
     name: 'Promote website',
     description: 'Promote the website to get more users.',
     status: false,
-    user_id: 'saulbrego',
+    user_id: 'thomaswilliams',
     project_id: 4
   },
   {
@@ -103,7 +103,7 @@ const taskData = [
     name: 'Make improvements',
     description: 'Make improvements to the website based on the data analysis.',
     status: false,
-    user_id: 'elizabethmoore',
+    user_id: 'jenniferanderson',
     project_id: 5
   },
   {
@@ -111,13 +111,13 @@ const taskData = [
     description: 'Add new users to the website.',
     status: true,
     user_id: 'johnsmith',
-    project_id: 1
+    project_id: 2
   },
   {
     name: 'Send emails',
     description: 'Send emails to users about the new features.',
     status: false,
-    user_id: 'elizabethmoore',
+    user_id: 'susanmiller',
     project_id: 1
   },
   {
@@ -125,21 +125,21 @@ const taskData = [
     description: 'Respond to support tickets from users.',
     status: true,
     user_id: 'peterwilliams',
-    project_id: 2
+    project_id: 5
   },
   {
     name: 'Improve customer support',
     description: 'Improve the customer support process so that users can get help more easily.',
     status: false,
     user_id: 'susanmiller',
-    project_id: 2
+    project_id: 1
   },
   {
     name: 'Launch new marketing campaign',
     description: 'Launch a new marketing campaign to get more users.',
     status: true,
-    user_id: 'susanmiller',
-    project_id: 3
+    user_id: 'noahbrown',
+    project_id: 4
   },
   {
     name: 'Track marketing results',
